@@ -1,0 +1,14 @@
+﻿<Page x:Class="yourPlanner.Year"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:yourPlanner"
+      mc:Ignorable="d" 
+      d:DesignHeight="800" d:DesignWidth="1135"
+      Title="Year" Background="#39868B">
+
+    <Grid>
+        <Label Content="Label" HorizontalAlignment="Left" Margin="55,146,0,0" VerticalAlignment="Top" Height="111" Width="205" FontSize="72"/>
+    </Grid>
+</Page>

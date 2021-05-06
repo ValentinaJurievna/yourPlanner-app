@@ -1,0 +1,213 @@
+﻿<Page x:Class="yourPlanner.Money"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:yourPlanner"
+      mc:Ignorable="d" 
+      d:DesignHeight="800" d:DesignWidth="1135"
+      Title="Money" Background="#34558B">
+
+    <Grid>
+        <TextBlock Text="Июнь" Margin="160,33,0,713" Style="{StaticResource font_style}" FontSize="48" Foreground="#F4DBB2" HorizontalAlignment="Left" FontWeight="Medium" FontFamily="Gotham Pro" Width="160"/>
+        <Border x:Name="income" Background="#BAC9D3" CornerRadius="15" MaxWidth="430" Height="450" Margin="160,110,0,240" HorizontalAlignment="Left">
+            <Grid ShowGridLines="False">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="70"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="70"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="353*"></ColumnDefinition>
+                    <ColumnDefinition Width="84*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Column="0" Grid.Row="0" Text="Доходы" Style="{StaticResource font_style}" FontSize="24" Height="39" Width="104" Margin="20,21,0,10.4"></TextBlock>
+
+                <TextBlock Grid.Row="1" Grid.Column="0" Margin="20,0,10,0">
+                    <Border Height="24" Width="25" Margin="0,10,0,0">
+                        <Border.Background>
+                            <ImageBrush ImageSource="img/2.png"></ImageBrush>
+                        </Border.Background>
+                    </Border>
+                    <RichTextBox Background="Transparent" BorderThickness="0 0 0 1" BorderBrush="#34558B" Height="25"></RichTextBox>
+                </TextBlock>
+                <TextBlock Grid.Row="1" Grid.Column="1" Margin="0,10,10,0">
+                    <RichTextBox Background="Transparent" BorderThickness="0 0 0 1" BorderBrush="#34558B" Height="25"></RichTextBox>
+                </TextBlock>
+
+                <TextBlock Grid.Row="2" Grid.Column="0" Margin="20,0,10,0">
+                    <Border Height="24" Width="25" Margin="0,10,0,0">
+                        <Border.Background>
+                            <ImageBrush ImageSource="img/2.png"></ImageBrush>
+                        </Border.Background>
+                    </Border>
+                    <RichTextBox Background="Transparent" BorderThickness="0 0 0 1" BorderBrush="#34558B" Height="25"></RichTextBox>
+                </TextBlock>
+                <TextBlock Grid.Row="2" Grid.Column="1" Margin="0,10,10,0">
+                    <RichTextBox Background="Transparent" BorderThickness="0 0 0 1" BorderBrush="#34558B" Height="25"></RichTextBox>
+                </TextBlock>
+
+                <TextBlock Grid.Row="3" Grid.Column="0" Margin="20,0,10,0">
+                    <Border Height="24" Width="25" Margin="0,10,0,0">
+                        <Border.Background>
+                            <ImageBrush ImageSource="img/2.png"></ImageBrush>
+                        </Border.Background>
+                    </Border>
+                    <RichTextBox Background="Transparent" BorderThickness="0 0 0 1" BorderBrush="#34558B" Height="25"></RichTextBox>
+                </TextBlock>
+                <TextBlock Grid.Row="3" Grid.Column="1" Margin="0,10,10,0">
+                    <RichTextBox Background="Transparent" BorderThickness="0 0 0 1" BorderBrush="#34558B" Height="25"></RichTextBox>
+                </TextBlock>
+
+                <TextBlock Grid.Row="4" Grid.Column="0" Margin="20,0,10,0">
+                    <Border Height="24" Width="25" Margin="0,10,0,0">
+                        <Border.Background>
+                            <ImageBrush ImageSource="img/2.png"></ImageBrush>
+                        </Border.Background>
+                    </Border>
+                    <RichTextBox Background="Transparent" BorderThickness="0 0 0 1" BorderBrush="#34558B" Height="25"></RichTextBox>
+                </TextBlock>
+                <TextBlock Grid.Row="4" Grid.Column="1" Margin="0,10,10,0">
+                    <RichTextBox Background="Transparent" BorderThickness="0 0 0 1" BorderBrush="#34558B" Height="25"></RichTextBox>
+                </TextBlock>
+
+                <TextBlock Grid.Row="5" Grid.Column="0" Margin="18,0,10,0">
+                    <Border Height="24" Width="25" Margin="0,10,0,0">
+                        <Border.Background>
+                            <ImageBrush ImageSource="img/2.png"></ImageBrush>
+                        </Border.Background>
+                    </Border>
+                    <RichTextBox Background="Transparent" BorderThickness="0 0 0 1" BorderBrush="#34558B" Height="25"></RichTextBox>
+                </TextBlock>
+                <TextBlock Grid.Row="5" Grid.Column="1" Margin="0,10,10,0">
+                    <RichTextBox Background="Transparent" BorderThickness="0 0 0 1" BorderBrush="#34558B" Height="25"></RichTextBox>
+                </TextBlock>
+
+                <TextBlock Text="Итого:" Grid.Row="10" Grid.Column="0" FontSize="18" Style="{StaticResource font_style}" HorizontalAlignment="Right" />
+                <RichTextBox Grid.Row="10" Grid.Column="1" Background="Transparent" BorderThickness="0 0 0 1" BorderBrush="#34558B" Height="25" Margin="10,0,10,9.7"></RichTextBox>
+            </Grid>
+
+        </Border>
+        <Border x:Name="expenses" Background="#BAC9D3" CornerRadius="15" MaxWidth="430" Height="450" Margin="609,110,0,240" HorizontalAlignment="Left" >
+            <Grid ShowGridLines="False">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="70"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="70"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="353*"></ColumnDefinition>
+                    <ColumnDefinition Width="84*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Column="0" Grid.Row="0" Text="Расходы" Style="{StaticResource font_style}" FontSize="24" Height="39" Width="104" Margin="20,21,0,10.4"></TextBlock>
+
+                <TextBlock Grid.Row="1" Grid.Column="0" Margin="20,0,10,0">
+                    <Border Height="24" Width="25" Margin="0,10,0,0">
+                        <Border.Background>
+                            <ImageBrush ImageSource="img/low-price.png"></ImageBrush>
+                        </Border.Background>
+                    </Border>
+                    <RichTextBox Background="Transparent" BorderThickness="0 0 0 1" BorderBrush="#34558B" Height="25"></RichTextBox>
+                </TextBlock>
+                <TextBlock Grid.Row="1" Grid.Column="1" Margin="0,10,10,0">
+                    <RichTextBox Background="Transparent" BorderThickness="0 0 0 1" BorderBrush="#34558B" Height="25"></RichTextBox>
+                </TextBlock>
+
+                <TextBlock Grid.Row="2" Grid.Column="0" Margin="20,0,10,0">
+                    <Border Height="24" Width="25" Margin="0,10,0,0">
+                        <Border.Background>
+                            <ImageBrush ImageSource="img/low-price.png"></ImageBrush>
+                        </Border.Background>
+                    </Border>
+                    <RichTextBox Background="Transparent" BorderThickness="0 0 0 1" BorderBrush="#34558B" Height="25"></RichTextBox>
+                </TextBlock>
+                <TextBlock Grid.Row="2" Grid.Column="1" Margin="0,10,10,0">
+                    <RichTextBox Background="Transparent" BorderThickness="0 0 0 1" BorderBrush="#34558B" Height="25"></RichTextBox>
+                </TextBlock>
+
+                <TextBlock Grid.Row="3" Grid.Column="0" Margin="20,0,10,0">
+                    <Border Height="24" Width="25" Margin="0,10,0,0">
+                        <Border.Background>
+                            <ImageBrush ImageSource="img/low-price.png"></ImageBrush>
+                        </Border.Background>
+                    </Border>
+                    <RichTextBox Background="Transparent" BorderThickness="0 0 0 1" BorderBrush="#34558B" Height="25"></RichTextBox>
+                </TextBlock>
+                <TextBlock Grid.Row="3" Grid.Column="1" Margin="0,10,10,0">
+                    <RichTextBox Background="Transparent" BorderThickness="0 0 0 1" BorderBrush="#34558B" Height="25"></RichTextBox>
+                </TextBlock>
+
+                <TextBlock Grid.Row="4" Grid.Column="0" Margin="20,0,10,0">
+                    <Border Height="24" Width="25" Margin="0,10,0,0">
+                        <Border.Background>
+                            <ImageBrush ImageSource="img/low-price.png"></ImageBrush>
+                        </Border.Background>
+                    </Border>
+                    <RichTextBox Background="Transparent" BorderThickness="0 0 0 1" BorderBrush="#34558B" Height="25"></RichTextBox>
+                </TextBlock>
+                <TextBlock Grid.Row="4" Grid.Column="1" Margin="0,10,10,0">
+                    <RichTextBox Background="Transparent" BorderThickness="0 0 0 1" BorderBrush="#34558B" Height="25"></RichTextBox>
+                </TextBlock>
+
+                <TextBlock Grid.Row="5" Grid.Column="0" Margin="20,0,10,0">
+                    <Border Height="24" Width="25" Margin="0,10,0,0">
+                        <Border.Background>
+                            <ImageBrush ImageSource="img/low-price.png"></ImageBrush>
+                        </Border.Background>
+                    </Border>
+                    <RichTextBox Background="Transparent" BorderThickness="0 0 0 1" BorderBrush="#34558B" Height="25"></RichTextBox>
+                </TextBlock>
+                <TextBlock Grid.Row="5" Grid.Column="1" Margin="0,10,10,0">
+                    <RichTextBox Background="Transparent" BorderThickness="0 0 0 1" BorderBrush="#34558B" Height="25"></RichTextBox>
+                </TextBlock>
+
+                <TextBlock Text="Итого:" Grid.Row="10" Grid.Column="0" FontSize="18" Style="{StaticResource font_style}" HorizontalAlignment="Right" />
+                <RichTextBox Grid.Row="10" Grid.Column="1" Background="Transparent" BorderThickness="0 0 0 1" BorderBrush="#34558B" Height="25" Margin="10,0,10,10"></RichTextBox>
+            </Grid>
+        </Border>
+
+        <Border x:Name="savings" Background="#BAC9D3" CornerRadius="15" Width="430" Height="150" Margin="609,596,0,54" HorizontalAlignment="Left">
+            <Grid ShowGridLines="False">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="49*"></RowDefinition>
+                    <RowDefinition Height="47*"></RowDefinition>
+                    <RowDefinition Height="45*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="259*"></ColumnDefinition>
+                    <ColumnDefinition Width="171*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Column="0" Grid.Row="0" Text="Сбережения" Style="{StaticResource font_style}" FontSize="24" Margin="20,20,0,50.6" Grid.RowSpan="2"></TextBlock>
+                <TextBlock Grid.Row="1" Grid.Column="0" Margin="20,20,10.2,44.4" Grid.RowSpan="2">
+                    <Border Height="24" Width="25" Margin="0,10,0,0">
+                        <Border.Background>
+                            <ImageBrush ImageSource="img/savings.png"></ImageBrush>
+                        </Border.Background>
+                    </Border>
+                    <RichTextBox Background="Transparent" BorderThickness="0 0 0 1" BorderBrush="#34558B" Height="31" FontSize="20"></RichTextBox>
+                </TextBlock>
+                <TextBlock Grid.Row="1" Margin="259,20,10.4,44.4" Grid.ColumnSpan="2" Grid.RowSpan="2">
+                    <RichTextBox Background="Transparent" BorderThickness="0 0 0 1" BorderBrush="#34558B" Height="34" FontSize="20"></RichTextBox>
+                </TextBlock>
+            </Grid>
+
+        </Border>
+        <Image Source="img/stick.png"  Height="143" Width="208" Margin="917,560,0,97" HorizontalAlignment="Left"/>
+    </Grid>
+</Page>

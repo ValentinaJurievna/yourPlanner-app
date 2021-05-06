@@ -1,0 +1,170 @@
+﻿<Page x:Class="yourPlanner.Week"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:yourPlanner"
+      mc:Ignorable="d" 
+      d:DesignHeight="800" d:DesignWidth="1135"
+      Title="Week" Background="#34558B">
+
+    <Grid DataContext="{Binding Source={StaticResource WeekViewModel}}">
+        <Border x:Name="weekPlans" Background="#BAC9D3" CornerRadius="15" Margin="100,190,100.2,34" MaxWidth="1100">
+            <Grid ShowGridLines="False">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="24*"></RowDefinition>
+                    <RowDefinition Height="167*"></RowDefinition>
+                    <RowDefinition Height="13*"></RowDefinition>
+                    <RowDefinition Height="152*"></RowDefinition>
+                    <RowDefinition Height="13*"></RowDefinition>
+                    <RowDefinition Height="152*"></RowDefinition>
+                    <RowDefinition Height="24*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="24"></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition Width="24"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+                <!--Monday-->
+                <Border Grid.Column="1" Grid.Row="1" Height="44" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="7,28.2,0,99" Width="70">
+                    <Border.Background>
+                        <ImageBrush ImageSource="img/dayName.png"></ImageBrush>
+                    </Border.Background>
+                    <TextBlock Style="{StaticResource font_style}" Foreground="White" FontSize="12" Text="ПН" Margin="21,5,0,0" ></TextBlock>
+                </Border>
+                <Border Grid.Column="1" Grid.Row="1" MaxWidth="700" HorizontalAlignment="Left" CornerRadius="20">
+                    <Border.Background>
+                        <ImageBrush ImageSource="img/Vector.png"></ImageBrush>
+                    </Border.Background>
+                    <ScrollViewer Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="3">
+                        <ItemsControl Padding="80,10,0,0" x:Name="taskList1" ItemsSource="{Binding MondayPlans}" MinWidth="400" >
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal">
+                                        <CheckBox Content="{Binding Path=Label}"/>
+                                        <Button Height="21" Width="33" Background="Transparent" BorderThickness="0" Margin="250,0,0,0">
+                                            <Image Source="img/remove.png" Height="17" Width="33"></Image>
+                                        </Button>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                    </ScrollViewer>
+                </Border>
+
+                <!--Tuesday-->
+                <Border Grid.Column="2" Grid.Row="1" Width="70" Height="44" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="7,28.2,0,99">
+                    <Border.Background>
+                        <ImageBrush ImageSource="img/dayName.png"></ImageBrush>
+                    </Border.Background>
+                    <TextBlock Style="{StaticResource font_style}" Foreground="White" FontSize="12" Text="ВТ" Margin="21,5,0,0" ></TextBlock>
+                </Border>
+                <Border Grid.Column="2" Grid.Row="1" MaxWidth="700" HorizontalAlignment="Left">
+                    <Border.Background>
+                        <ImageBrush ImageSource="img/Vector.png"></ImageBrush>
+                    </Border.Background>
+                    <RichTextBox x:Name="tuesday" BorderThickness="0" Background="Transparent" Margin="69,0,0,0"></RichTextBox>
+                </Border>
+
+                <!--Wednesday-->
+                <Border Grid.Column="1" Grid.Row="3" Width="70" Height="44" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="7,-60,0,0">
+                    <Border.Background>
+                        <ImageBrush ImageSource="img/dayName.png"></ImageBrush>
+                    </Border.Background>
+                    <TextBlock Style="{StaticResource font_style}" Foreground="White" FontSize="12" Text="СР" Margin="21,5,0,0" ></TextBlock>
+                </Border>
+                <Border Grid.Column="1" Grid.Row="3" MaxWidth="700" HorizontalAlignment="Left">
+                    <Border.Background>
+                        <ImageBrush ImageSource="img/Vector.png"></ImageBrush>
+                    </Border.Background>
+                    <RichTextBox x:Name="Wednesday" BorderThickness="0" Background="Transparent" Margin="69,0,0,0"></RichTextBox>
+                </Border>
+
+                <!--Thursday-->
+                <Border Grid.Column="2" Grid.Row="3" Width="70" Height="44" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="7,-60,0,0">
+                    <Border.Background>
+                        <ImageBrush ImageSource="img/dayName.png"></ImageBrush>
+                    </Border.Background>
+                    <TextBlock Style="{StaticResource font_style}" Foreground="White" FontSize="12" Text="ЧТ" Margin="21,5,0,0" ></TextBlock>
+                </Border>
+                <Border Grid.Column="2" Grid.Row="3" MaxWidth="700" HorizontalAlignment="Left">
+                    <Border.Background>
+                        <ImageBrush ImageSource="img/Vector.png"></ImageBrush>
+                    </Border.Background>
+                    <RichTextBox x:Name="Thursday" BorderThickness="0" Background="Transparent" Margin="69,0,0,0"></RichTextBox>
+                </Border>
+
+                <!--Friday-->
+                <Border Grid.Column="1" Grid.Row="5" Width="70" Height="44" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="7,-60,0,0">
+                    <Border.Background>
+                        <ImageBrush ImageSource="img/dayName.png"></ImageBrush>
+                    </Border.Background>
+                    <TextBlock Style="{StaticResource font_style}" Foreground="White" FontSize="12" Text="ПТ" Margin="21,5,0,0" ></TextBlock>
+                </Border>
+                <Border Grid.Column="1" Grid.Row="5" MaxWidth="700" HorizontalAlignment="Left">
+                    <Border.Background>
+                        <ImageBrush ImageSource="img/Vector.png"></ImageBrush>
+                    </Border.Background>
+                    <RichTextBox x:Name="Friday" BorderThickness="0" Background="Transparent" Margin="69,0,0,0"></RichTextBox>
+                </Border>
+
+                <!--Weekend-->
+                <Border Grid.Column="2" Grid.Row="5" Width="70" Height="44" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="7,-60,0,0">
+                    <Border.Background>
+                        <ImageBrush ImageSource="img/dayName.png"></ImageBrush>
+                    </Border.Background>
+                    <TextBlock Style="{StaticResource font_style}" Foreground="White" FontSize="12" Text="СБ-ВС" Margin="10,5,0,0" ></TextBlock>
+                </Border>
+                <Border Grid.Column="2" Grid.Row="5" MaxWidth="700" HorizontalAlignment="Left">
+                    <Border.Background>
+                        <ImageBrush ImageSource="img/Vector.png"></ImageBrush>
+                    </Border.Background>
+                    <RichTextBox x:Name="Weekend" BorderThickness="0" Background="Transparent" Margin="69,0,0,0"></RichTextBox>
+                </Border>
+
+                <Image Source="img/stick.png"  Height="143" Width="208" Margin="-107,77.4,367,-34" Grid.ColumnSpan="2" Grid.Row="5" Grid.RowSpan="2" />
+                <Image Source="img/stick.png"  Height="143" Width="208" Margin="363,-66,-103.8,124.6" Grid.ColumnSpan="2" Grid.RowSpan="2" Grid.Column="2" />
+            </Grid>
+        </Border>
+
+
+
+        <TextBlock Text="Приоритеты недели" Foreground="White" FontFamily="Gotham Pro" Margin="100,23,643.2,747" FontSize="22" MaxWidth="560" FontWeight="Light"></TextBlock>
+        <DatePicker SelectedDate="{Binding Path=NewTaskDateTime, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  Name="datePicker1" IsDropDownOpen="True" SelectedDateFormat="Short" />
+        <Border x:Name="priorities" Background="#BAC9D3" CornerRadius="15" Margin="100,60,643.2,620" MaxWidth="560">
+            <Grid>
+                <TextBlock Margin="0,0,9.8,48.4">
+                    <Border Height="29" Width="29" Margin="10,10,0,0">
+                        <TextBlock  FontSize="18" Margin="8,2,6.8,3.8">1.</TextBlock>
+                        <Border.Background>
+                            <ImageBrush ImageSource="img/listPriority.png"></ImageBrush>
+                        </Border.Background>
+                    </Border>
+                    <RichTextBox Background="Transparent" Foreground="#F4DBB2" BorderThickness="0 0 0 1" BorderBrush="#F4DBB2" Height="25" Padding="0" FontSize="18"></RichTextBox>
+                </TextBlock>
+
+                <TextBlock Margin="0,30,9.8,0.4">
+                    <Border Height="29" Width="29" Margin="10,10,0,0">
+                        <TextBlock  FontSize="18" Margin="8,2,6.8,3.8">2.</TextBlock>
+                        <Border.Background>
+                            <ImageBrush ImageSource="img/listPriority.png"></ImageBrush>
+                        </Border.Background>
+                    </Border>
+                    <RichTextBox Background="Transparent" BorderThickness="0 0 0 1" BorderBrush="#F4DBB2" Height="20" Padding="0" FontSize="18"></RichTextBox>
+                </TextBlock>
+
+                <TextBlock Margin="0,60,9.8,0.4">
+                    <Border Height="29" Width="29" Margin="10,10,0,0">
+                        <TextBlock  FontSize="18" Margin="8,2,6.8,3.8">3.</TextBlock>
+                        <Border.Background>
+                            <ImageBrush ImageSource="img/listPriority.png"></ImageBrush>
+                        </Border.Background>
+                    </Border>
+                    <RichTextBox Background="Transparent" BorderThickness="0 0 0 1" BorderBrush="#F4DBB2" Height="20" Padding="0" FontSize="18"></RichTextBox>
+                </TextBlock>
+            </Grid>
+        </Border>
+    </Grid>
+</Page>

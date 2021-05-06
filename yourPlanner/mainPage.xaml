@@ -1,0 +1,387 @@
+﻿<Page x:Class="yourPlanner.mainPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:yourPlanner"
+      mc:Ignorable="d" 
+      d:DesignHeight="800" d:DesignWidth="1200"
+      Title="mainPage" Background="#34558B" ShowsNavigationUI="False">
+
+    <Grid>
+        <Frame x:Name="frame" Height="800" Margin="65,0,0,0"/>
+        <Grid x:Name="greeting">
+            <Image Source="img/plane.png" Margin="926,422,-45,-182" RenderTransformOrigin="0.5,0.5" Panel.ZIndex="-10">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="1414.403"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+        <TextBlock Style="{StaticResource font_style}" TextWrapping="Wrap" Foreground="White"  FontSize="30" Height="224" Panel.ZIndex="-10" Padding="30" HorizontalAlignment="Left" Margin="300,288,0,288" Width="870">“Когда кажется, что весь мир настроен против тебя, помни, что самолёт взлетает против ветра!”</TextBlock>
+        <TextBlock Style="{StaticResource font_style}" Foreground="White"  FontSize="25" Padding="30" Height="114" Margin="310,100,0,0" Panel.ZIndex="-10">&#169; Генри Форд</TextBlock>
+        </Grid>
+       
+        <Grid>
+            <!-- Navigation Panel -->
+            <Grid   x:Name="nav_pnl"
+                    HorizontalAlignment="Left"
+                    Width="65"
+                    Background="#B4C7D6" Panel.ZIndex="200" Height="800" VerticalAlignment="Top">
+
+                <StackPanel x:Name="st_pnl" VerticalAlignment="Top" Height="800">
+                    <!--// Grid for the Menu Toggle Button //-->
+                    <Grid Height="72" Margin="0,0,-0.2,0">
+                        <!--// Menu title text //-->
+                        <StackPanel Orientation="Vertical" Margin="80,0,0,0" VerticalAlignment="Center">
+                            <TextBlock
+                                    Text="Валентина"
+                                    Foreground="Black"
+                                    FontSize="18"
+                                    Background="Transparent"
+                                    VerticalAlignment="Center"
+                                    Style="{StaticResource font_style}">
+                            </TextBlock>
+
+                            <TextBlock
+                                    Text="judesignnn@gmail.com"
+                                    Foreground="Black"
+                                    FontSize="13"
+                                    Background="Transparent"
+                                    Style="{StaticResource font_style}">
+                            </TextBlock>
+                        </StackPanel>
+
+
+                        <ToggleButton x:Name="toggle_Btn"
+                                      Grid.Column="0"
+                                      VerticalAlignment="Center"
+                                      HorizontalAlignment="Left"
+                                      Height="30"
+                                      Width="30"
+                                      BorderThickness="0"
+                                      Style="{StaticResource tb_style}" Unchecked="Tg_Btn_Unchecked" Checked="Tg_Btn_Checked" Margin="15,0,0,0">
+                            <ToggleButton.Background>
+                                <ImageBrush ImageSource="img/menu.png"
+                                            />
+                            </ToggleButton.Background>
+
+                            <!--// Toggle Button - Checked, Unchecked events //-->
+
+                            <ToggleButton.Triggers>
+                                <EventTrigger RoutedEvent="ToggleButton.Unchecked">
+                                    <BeginStoryboard>
+                                        <Storyboard x:Name="HideStackPanel">
+                                            <DoubleAnimation   
+                                                Storyboard.TargetName="nav_pnl"
+                                                Storyboard.TargetProperty="Width"
+                                                BeginTime="0:0:0"
+                                                From="270" To="65"
+                                                Duration="0:0:0.2">
+                                            </DoubleAnimation>
+                                            <ThicknessAnimationUsingKeyFrames Storyboard.TargetName="frame" Storyboard.TargetProperty="Margin" BeginTime="00:00:00">
+                                                <SplineThicknessKeyFrame KeyTime="00:00:00" Value="230,0,0,0" />
+                                                <SplineThicknessKeyFrame KeyTime="00:00:0.2" Value="65,0,0,0" />
+                                            </ThicknessAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </EventTrigger>
+                                <EventTrigger RoutedEvent="ToggleButton.Checked">
+                                    <BeginStoryboard>
+                                        <Storyboard x:Name="ShowStackPanel">
+                                            <DoubleAnimation
+                                                Storyboard.TargetName="nav_pnl"
+                                                Storyboard.TargetProperty="Width"
+                                                BeginTime="0:0:0"
+                                                From="65" To="270"
+                                                Duration="0:0:0.3">
+                                            </DoubleAnimation>
+                                            <ThicknessAnimationUsingKeyFrames Storyboard.TargetName="frame" Storyboard.TargetProperty="Margin" BeginTime="00:00:00">
+                                                <SplineThicknessKeyFrame KeyTime="00:00:00" Value="65,0,0,0" />
+                                                <SplineThicknessKeyFrame KeyTime="00:00:0.2" Value="230,0,0,0" />
+                                            </ThicknessAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </EventTrigger>
+                            </ToggleButton.Triggers>
+                        </ToggleButton>
+
+                    </Grid>
+
+
+                    <!-- Menu -->
+
+                    <ListView  x:Name="LV"
+                               Background="Transparent"
+                               BorderBrush="Transparent"
+                               ScrollViewer.HorizontalScrollBarVisibility="Hidden" Margin="0,0,-0.2,0" Height="599">
+
+                        <!-- Home -->
+                        <ListViewItem x:Name="home" HorizontalAlignment="Left"
+                                      Margin="0,0,0,15" MouseEnter="ListViewItem_MouseEnter" MouseDown="ListViewItem_MouseDown" MouseUp="ListViewItem_MouseDown"
+                                      >
+                            <StackPanel Orientation="Horizontal" Width="270">
+                                <Image Source="img/home.png" Margin="10,0,0,0" Height="30"/>
+                                <TextBlock Text="Главная"
+                                           Margin="20,0,0,0"
+                                           Style="{StaticResource font_style}"/>
+                            </StackPanel>
+
+                            <ListViewItem.ToolTip>
+                                <ToolTip x:Name="tt_home"
+                                         Content="Главная"
+                                         Style="{StaticResource tt_style}"/>
+                            </ListViewItem.ToolTip>
+                        </ListViewItem>
+
+                        <!-- Year -->
+                        <ListViewItem Name="year" HorizontalAlignment="Left"
+                                      Margin="0,0,0,15" MouseEnter="ListViewItem_MouseEnter" MouseDown="ListViewItem_MouseDown" MouseUp="ListViewItem_MouseDown"
+                                      >
+
+                            <StackPanel Orientation="Horizontal"
+                                        Width="270">
+                                <Image Source="img/year.png" Margin="10,0,0,0" Height="30"/>
+                                <TextBlock Text="Планы на год"
+                                           Margin="20,0,0,0"
+                                           Style="{StaticResource font_style}"></TextBlock>
+                            </StackPanel>
+                            <ListViewItem.ToolTip>
+                                <ToolTip x:Name="tt_year"
+                                         Content="Планы на год"
+                                         Style="{StaticResource tt_style}"/>
+                            </ListViewItem.ToolTip>
+                        </ListViewItem>
+
+                        <!-- Month -->
+                        <ListViewItem x:Name="month" HorizontalAlignment="Left"
+                                      Margin="0,0,0,15" MouseEnter="ListViewItem_MouseEnter" MouseDown="ListViewItem_MouseDown" MouseUp="ListViewItem_MouseDown"
+                                      >
+                            <StackPanel Orientation="Horizontal"
+                                        Width="270">
+                                <Image Source="img/month.png" Margin="10,0,0,0" Height="30"/>
+                                <TextBlock Text="Планы на месяц"
+                                           Margin="20,0,0,0"
+                                           Style="{StaticResource font_style}"/>
+                            </StackPanel>
+                            <ListViewItem.ToolTip>
+                                <ToolTip x:Name="tt_month"
+                                         Content="Планы на месяц"
+                                         Style="{StaticResource tt_style}"/>
+                            </ListViewItem.ToolTip>
+                        </ListViewItem>
+
+                        <!-- Week -->
+                        <ListViewItem x:Name="week" HorizontalAlignment="Left"
+                                      Margin="0,0,0,15" MouseEnter="ListViewItem_MouseEnter" MouseDown="ListViewItem_MouseDown" MouseUp="ListViewItem_MouseDown"
+                                      >
+                            <StackPanel Orientation="Horizontal"
+                                        Width="270">
+                                <Image Source="img/week.png" Margin="10,0,0,0" Height="30"/>
+                                <TextBlock Text="Планы на неделю"
+                                           Margin="20,0,0,0"
+                                           Style="{StaticResource font_style}"/>
+                            </StackPanel>
+                            <ListViewItem.ToolTip>
+                                <ToolTip x:Name="tt_week"
+                                         Content="Планы на неделю"
+                                         Style="{StaticResource tt_style}"/>
+                            </ListViewItem.ToolTip>
+                        </ListViewItem>
+
+                        <!-- Day -->
+                        <ListViewItem HorizontalAlignment="Left"
+                                      Margin="0,0,0,15" MouseEnter="ListViewItem_MouseEnter"
+                                      >
+                            <StackPanel Orientation="Horizontal"
+                                        Width="270">
+                                <Image Source="img/day.png"  Margin="10,0,0,0" Height="30"/>
+                                <TextBlock Text="Планы на день"
+                                           Margin="20,0,0,0"
+                                           Style="{StaticResource font_style}"/>
+                            </StackPanel>
+                            <ListViewItem.ToolTip>
+                                <ToolTip x:Name="tt_day"
+                                         Content="Планы на день"
+                                         Style="{StaticResource tt_style}"/>
+                            </ListViewItem.ToolTip>
+                        </ListViewItem>
+
+                        <!-- to-do list -->
+                        <ListViewItem HorizontalAlignment="Left"
+                                      Margin="0,0,0,15" MouseEnter="ListViewItem_MouseEnter"
+                                      >
+                            <StackPanel Orientation="Horizontal"
+                                        Width="270">
+                                <Image Source="img/list.png" Margin="10,0,0,0" Height="30"/>
+                                <TextBlock Text="Список дел"
+                                           Margin="20,0,0,0"
+                                           Style="{StaticResource font_style}"/>
+                                <!--<ComboBox>
+                                    <ComboBoxItem IsSelected="True">
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock>Название 1</TextBlock>
+                                        </StackPanel>
+                                    </ComboBoxItem>
+                                    <ComboBoxItem>
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock>Название 1</TextBlock>
+                                        </StackPanel>
+                                    </ComboBoxItem>
+                                </ComboBox>-->
+                            </StackPanel>
+                            <ListViewItem.ToolTip>
+                                <ToolTip x:Name="tt_toDo"
+                                         Content="Список дел"
+                                         Style="{StaticResource tt_style}"/>
+                            </ListViewItem.ToolTip>
+
+                        </ListViewItem>
+
+
+
+                        <!-- Passwords -->
+                        <ListViewItem x:Name="passwords" HorizontalAlignment="Left"
+                                      Margin="0,0,0,15" MouseEnter="ListViewItem_MouseEnter" MouseDown="ListViewItem_MouseDown" MouseUp="ListViewItem_MouseDown"
+                                      >
+                            <StackPanel Orientation="Horizontal"
+                                        Width="270">
+                                <Image Source="img/passwords.png" Margin="10,0,0,0" Height="30"/>
+                                <TextBlock Text="Логины и пароли"
+                                           Margin="20,0,0,0"
+                                           Style="{StaticResource font_style}"/>
+                            </StackPanel>
+
+                            <ListViewItem.ToolTip>
+                                <ToolTip x:Name="tt_passwords"
+                                         Content="Логины и пароли"
+                                         Style="{StaticResource tt_style}"/>
+                            </ListViewItem.ToolTip>
+                        </ListViewItem>
+
+                        <!-- Money -->
+                        <ListViewItem x:Name="money" HorizontalAlignment="Left"
+                                      Margin="0,0,0,15" MouseEnter="ListViewItem_MouseEnter" MouseDown="ListViewItem_MouseDown" MouseUp="ListViewItem_MouseDown" Padding="4"
+                                      >
+                            <StackPanel Orientation="Horizontal"
+                                        Width="270">
+                                <Image Source="img/money.png" Margin="10,0,0,0" Height="30"/>
+                                <TextBlock Text="Расходы и доходы"
+                                           Margin="20,0,0,0"
+                                           Style="{StaticResource font_style}"/>
+                            </StackPanel>
+                            <ListViewItem.ToolTip>
+                                <ToolTip x:Name="tt_money"
+                                         Content="Расходы и доходы"
+                                         Style="{StaticResource tt_style}"/>
+                            </ListViewItem.ToolTip>
+                        </ListViewItem>
+
+                        <!-- Settings -->
+                        <ListViewItem HorizontalAlignment="Left"
+                                      Margin="0,0,0,15" MouseEnter="ListViewItem_MouseEnter" Padding="4"
+                                      >
+                            <StackPanel Orientation="Horizontal"
+                                        Width="270">
+                                <Image Source="img/setting.png" Margin="10,0,0,0" Height="30"/>
+                                <TextBlock Text="Настройки"
+                                           Margin="20,0,0,0"
+                                           Style="{StaticResource font_style}"/>
+                            </StackPanel>
+                            <ListViewItem.ToolTip>
+                                <ToolTip x:Name="tt_settings"
+                                         Content="Настройки"
+                                         Style="{StaticResource tt_style}"/>
+                            </ListViewItem.ToolTip>
+                        </ListViewItem>
+
+                        <!-- Listview items style -->
+                        <ListView.ItemContainerStyle>
+                            <Style TargetType="ListViewItem">
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="{x:Type ListViewItem}">
+                                            <Border x:Name="Bd"
+                                                    Height="50"
+                                                    CornerRadius="0 20 20 0"
+                                                    BorderBrush="{TemplateBinding BorderBrush}"
+                                                    BorderThickness="{TemplateBinding BorderThickness}"
+                                                    Background="{TemplateBinding Background}"
+                                                    Padding="{TemplateBinding Padding}"
+                                                    SnapsToDevicePixels="True">
+                                                <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                                                  SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+                                                                  VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+
+                                            </Border>
+                                            <ControlTemplate.Triggers>
+                                                <MultiTrigger>
+                                                    <MultiTrigger.Conditions>
+                                                        <Condition Property="IsMouseOver" Value="True"/>
+                                                    </MultiTrigger.Conditions>
+                                                    <Setter Property="Background"
+                                                            TargetName="Bd"
+                                                            Value="#F4DBB2"/>
+                                                    <Setter Property="Width"
+                                                            Value="250"/>
+                                                    <Setter Property="Cursor"
+                                                            Value="Hand"/>
+                                                </MultiTrigger>
+                                            </ControlTemplate.Triggers>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                            </Style>
+                        </ListView.ItemContainerStyle>
+                    </ListView>
+                    <local:ToggleSwitchMode x:Name="switchMode" HorizontalAlignment="Left" Height="31" Width="55" Margin="5,0,0,0" VerticalAlignment="Bottom" />
+
+                    <!--<ComboBox Background="#B4C7D6">
+                        <ComboBoxItem IsSelected="True">
+                            Ру
+                        </ComboBoxItem>
+                        <ComboBoxItem>
+                            En
+                        </ComboBoxItem>
+
+                        <ComboBox.ItemContainerStyle>
+                            <Style TargetType="ComboBoxItem">
+                                <Setter Property="Cursor" Value="Hand"></Setter>
+                                <Setter Property="Background" Value="#B4C7D6"></Setter>
+                                <Setter Property="Foreground" Value="Black"></Setter>
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="{x:Type ComboBoxItem}">
+                                            <Border x:Name="Bd"
+                                                    Height="50"
+                                                    
+                                
+                                                    BorderThickness="0"
+                                                    Background="{TemplateBinding Background}"
+                                                    Padding="{TemplateBinding Padding}"
+                                                    SnapsToDevicePixels="True">
+                                                <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                                                  SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+                                                                  VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+
+                                            </Border>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                            </Style>
+                        </ComboBox.ItemContainerStyle>
+                    </ComboBox>-->
+                </StackPanel>
+            </Grid>
+
+
+
+        </Grid>
+
+
+
+    </Grid>
+</Page>
