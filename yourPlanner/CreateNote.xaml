@@ -5,10 +5,10 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:yourPlanner"
       mc:Ignorable="d" 
-      d:DesignHeight="450"
-      Title="CreateNote" Width="745.646" Background="#BAC9D3">
+      d:DesignHeight="300"
+      Title="CreateNote" Width="400" Background="#BAC9D3">
 
     <Grid>
-        <TextBlock Margin="259,171,257,-0.4">Hello</TextBlock>
+        
     </Grid>
 </Page>

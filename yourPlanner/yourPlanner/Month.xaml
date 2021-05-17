@@ -1,0 +1,42 @@
+﻿<Page x:Class="yourPlanner.Month"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:calendar="clr-namespace:WPF.EventCalendar;assembly=WPF.EventCalendar"
+      xmlns:local="clr-namespace:yourPlanner"
+      mc:Ignorable="d" 
+      d:DesignHeight="800" d:DesignWidth="1135"
+      Title="Month" Style="{DynamicResource PageStyle}">
+    <Page.Resources>
+
+    </Page.Resources>
+    <Grid>
+        <Border DataContext="{Binding Source={StaticResource DailyPlansViewModel}}"
+            x:Name="monthPlans" Background="#BAC9D3" CornerRadius="15" Margin="50,50,50,100" >
+            <calendar:CalendarMonth x:Name="Calendar" Events="{Binding Path=Plans}"/>
+        </Border>
+        <Image Style="{DynamicResource imgDark}" Height="100" Width="130" Margin="2,642,0,58" HorizontalAlignment="Left" RenderTransformOrigin="0.5,0.5" >
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="12.791"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+        <Image Style="{DynamicResource imgDark}" Margin="0,16,10.2,684" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Right" Width="130" >
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="11.626"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+
+
+    </Grid>
+</Page>

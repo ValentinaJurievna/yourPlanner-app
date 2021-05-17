@@ -6,9 +6,95 @@
       xmlns:local="clr-namespace:yourPlanner"
       mc:Ignorable="d" 
       d:DesignHeight="800" d:DesignWidth="1135"
-      Title="Year" Background="#39868B">
+      Title="Year" Style="{DynamicResource PageStyle}">
 
-    <Grid>
-        <Label Content="Label" HorizontalAlignment="Left" Margin="55,146,0,0" VerticalAlignment="Top" Height="111" Width="205" FontSize="72"/>
+    <Grid DataContext="{Binding Source={StaticResource YearPlansViewModel}}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="34"></RowDefinition>
+            <RowDefinition Height="95*" ></RowDefinition>
+            <RowDefinition Height="271*" ></RowDefinition>
+            <RowDefinition Height="34"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="60"></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition Width="60"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Orientation="Horizontal" VerticalAlignment="Center">
+            <TextBox Text="{Binding YearStr}" Width="100" Style="{DynamicResource mainTextBox_style}" Background="Transparent"></TextBox>
+            <TextBlock Style="{DynamicResource mainTitle_style}" Text="- хороший год, чтобы сделать... ">
+            </TextBlock>
+        </StackPanel>
+
+        <Border Grid.Row="2" x:Name="todayPlans" Background="#BAC9D3" CornerRadius="15" Grid.Column="1" >
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="85*"></RowDefinition>
+                    <RowDefinition Height="166*"></RowDefinition>
+                    <RowDefinition Height="94*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Image Style="{DynamicResource imgDark}" Height="100" Width="130" Margin="0,-35,-51.6,40.6" Grid.Column="2" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Right" >
+                    <Image.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform Angle="11.626"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Image.RenderTransform>
+                </Image>
+                
+                <ItemsControl Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3" Grid.RowSpan="2" x:Name="taskList" ItemsSource="{Binding NewYearPlans}" Margin="20,20,0,0">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
+                                <TextBlock Text="{Binding Path=Year}" Width="100" Foreground="Black" FontSize="15" Style="{DynamicResource isDone}"></TextBlock>
+                                <TextBlock Text="{Binding Path=YearPlan}" Style="{DynamicResource isDone}" Width="340" TextWrapping="Wrap"></TextBlock>
+                                <Button x:Name="delete" Command="{Binding ElementName=taskList, Path=DataContext.DeleteYearTaskCommand}"
+                                            CommandParameter="{Binding Id}" Style="{DynamicResource icon_btn}"
+                                            Height="20" Background="Transparent" BorderThickness="0" Margin="10,0,0,0">
+                                    <Image Source="img/delete.png" Height="17"></Image>
+                                </Button>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+
+                <Border CornerRadius="15" Height="40" Background="White" Grid.Row="2" Grid.Column="0" Margin="20,0,0,0">
+                    <TextBox Name="year_textBox"
+                             Text="{Binding YearStr}"
+                             TextWrapping="Wrap" 
+                             Background="Transparent"
+                             FontFamily="Gotham Pro"
+                             FontWeight="Light" 
+                             Padding="10" Height="40" 
+                             BorderThickness="0" GotFocus="textBox_gotFocus" 
+                             LostFocus="textBox_lostFocus"/>
+                </Border>
+                <Border CornerRadius="15" Height="40" Background="White" Grid.Row="2" Grid.Column="1">
+                    <TextBox Name="addYearTask_textBox"
+                             Text="{Binding AddYearTaskStr}"
+                             TextWrapping="Wrap" 
+                             Background="Transparent"
+                             FontFamily="Gotham Pro"
+                             FontWeight="Light" 
+                             Padding="10" Height="40" 
+                             BorderThickness="0" Margin="0,0,10,-3.2" GotFocus="textBox_gotFocus" 
+                             LostFocus="textBox_lostFocus" />
+                </Border>
+
+                <Button x:Name="AddButton" Height="40" Width="110" Grid.Row="2" Grid.Column="2" Style="{DynamicResource standart_btn}" Content="Добавить"
+                            Command="{Binding AddYearTaskCommand}" Margin="7,0,20,0" Click="AddButton_Click"
+                            />
+            </Grid>
+        </Border>
+
+
     </Grid>
 </Page>

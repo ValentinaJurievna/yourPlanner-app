@@ -1,15 +1,19 @@
-﻿
-FG:\Курсовой проект ООП\yourPlanner\yourPlanner\App.xaml;;
-FG:\Курсовой проект ООП\yourPlanner\yourPlanner\Authorization.xaml;;
-FG:\Курсовой проект ООП\yourPlanner\yourPlanner\CreateNote.xaml;;
-FG:\Курсовой проект ООП\yourPlanner\yourPlanner\home.xaml;;
-FG:\Курсовой проект ООП\yourPlanner\yourPlanner\mainPage.xaml;;
-FG:\Курсовой проект ООП\yourPlanner\yourPlanner\Money.xaml;;
-FG:\Курсовой проект ООП\yourPlanner\yourPlanner\Month.xaml;;
-FG:\Курсовой проект ООП\yourPlanner\yourPlanner\Passwords.xaml;;
-FG:\Курсовой проект ООП\yourPlanner\yourPlanner\Themes\Dark.xaml;;
-FG:\Курсовой проект ООП\yourPlanner\yourPlanner\Themes\Light.xaml;;
-FG:\Курсовой проект ООП\yourPlanner\yourPlanner\ToggleSwitchMode.xaml;;
-FG:\Курсовой проект ООП\yourPlanner\yourPlanner\Week.xaml;;
-FG:\Курсовой проект ООП\yourPlanner\yourPlanner\Year.xaml;;
+﻿G:\yourPlanner-app\yourPlanner\obj\Debug\GeneratedInternalTypeHelper.g.cs
+FG:\yourPlanner-app\yourPlanner\App.xaml;;
+FG:\yourPlanner-app\yourPlanner\Authorization.xaml;;
+FG:\yourPlanner-app\yourPlanner\CreateNote.xaml;;
+FG:\yourPlanner-app\yourPlanner\Day.xaml;;
+FG:\yourPlanner-app\yourPlanner\EditProfile.xaml;;
+FG:\yourPlanner-app\yourPlanner\home.xaml;;
+FG:\yourPlanner-app\yourPlanner\mainPage.xaml;;
+FG:\yourPlanner-app\yourPlanner\Money.xaml;;
+FG:\yourPlanner-app\yourPlanner\Month.xaml;;
+FG:\yourPlanner-app\yourPlanner\Passwords.xaml;;
+FG:\yourPlanner-app\yourPlanner\Settings.xaml;;
+FG:\yourPlanner-app\yourPlanner\Themes\Dark.xaml;;
+FG:\yourPlanner-app\yourPlanner\Themes\Light.xaml;;
+FG:\yourPlanner-app\yourPlanner\UserControl\ToggleSwitchMode.xaml;;
+FG:\yourPlanner-app\yourPlanner\Week.xaml;;
+FG:\yourPlanner-app\yourPlanner\Windows\notificationWindow.xaml;;
+FG:\yourPlanner-app\yourPlanner\Year.xaml;;
 

@@ -12,7 +12,7 @@ namespace yourPlanner.DataBaseConnector
     {
             private static PlannerDataBaseContext autoPartsStoreContext;
             private static object syncRoot = new Object();
-            public PlannerDataBaseContext() : base("DefaultConnection")
+            private PlannerDataBaseContext() : base("DefaultConnection")
             {
 
             }
@@ -28,8 +28,13 @@ namespace yourPlanner.DataBaseConnector
                 }
                 return autoPartsStoreContext;
             }
-            public DbSet<DailyPlans> DailyPlans { get; set; }
             public DbSet<User> Users { get; set; }
+            public DbSet<DailyPlans> DailyPlans { get; set; }
+
+            public DbSet<DayInfo> DayInfo { get; set; }
+            public DbSet<WeekPriority> WeekPriorities { get; set; }
+            public DbSet<LoginPassword> LoginPasswords { get; set; }
+            public DbSet<YearPlans> YearPlans { get; set; }
 
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,16 +24,47 @@ namespace yourPlanner
         public home()
         {
             InitializeComponent();
+
+            if (taskList.Items.Count == 0)
+            {
+                noTasks.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                noTasks.Visibility = Visibility.Hidden;
+            }
         }
 
         private void OpenToDo_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            ListViewItem listViewItem = (ListViewItem)sender;
-            if (listViewItem.Name == "toDoList")
-            {
-                fram.Navigate(new CreateNote());
-            }
+            //ListViewItem listViewItem = (ListViewItem)sender;
+            //if (listViewItem.Name == "toDoList")
+            //{
+            //    miniFrame.Navigate(new CreateNote());
+            //}
         }
 
+        //private void openSettings(object sender, RoutedEventArgs e)
+        //{
+        //    miniFrame.Navigate(new Settings());
+        //}
+
+        private void textBox_gotFocus(object sender, RoutedEventArgs e)
+        {
+            TextBox textbox = (TextBox)sender;
+            if (textbox.Name == "addTodayTask_textBox" && textbox.Text == "Добавить новую задачу...") textbox.Text = "";
+        }
+
+        private void textBox_lostFocus(object sender, RoutedEventArgs e)
+        {
+            TextBox textbox = (TextBox)sender;
+            if (textbox.Name == "addTodayTask_textBox" && textbox.Text == "") textbox.Text = "Добавить новую задачу...";
+        }
+
+        private void addTask_Click(object sender, RoutedEventArgs e)
+        {
+            noTasks.Visibility = Visibility.Hidden;
+            addTodayTask_textBox.Text = "Добавить новую задачу...";
+        }
     }
 }

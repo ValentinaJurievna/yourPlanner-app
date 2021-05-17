@@ -8,30 +8,21 @@
         xmlns:ae="clr-namespace:yourPlanner.AdditionalElements"
         xmlns:vm="clr-namespace:yourPlanner.ViewModel"
         xmlns:sys="clr-namespace:System;assembly=mscorlib"
-        mc:Ignorable="d"
-        Title="Authorization" MinHeight="810" MinWidth="1300" Background="#34558B">
+        mc:Ignorable="d" 
+        Title="Authorization" MinHeight="810" MinWidth="1300" Style="{DynamicResource WindowStyle}">
     <Window.Resources>
-       
-
-        
-        <ControlTemplate x:Key="TextBoxWith"  TargetType="{x:Type Control}">
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition></RowDefinition>
-                    <RowDefinition></RowDefinition>
-                </Grid.RowDefinitions>
-                <Label Grid.Row="0" Content="placeholder" x:Name="LoginPlaceholder"/>
-                <TextBox Grid.Row="1" Text="" x:Name="LoginTextBox"/>
-            </Grid>
-            <ControlTemplate.Triggers>
-                <DataTrigger Binding="{Binding ElementName=LoginTextBox}"  Value="{x:Static sys:String.Empty}">
-                    <Setter TargetName="LoginPlaceholder" Property="Visibility" Value="0"/>
-                </DataTrigger>
-            </ControlTemplate.Triggers>
-        </ControlTemplate>
+        <!--<BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
+        <ae:TextBoxWithPlaceholder x:Key="TextBoxWithPlaceholder" />
+        <SolidColorBrush x:Key="brushWatermarkBackground" Color="White" />
+        <SolidColorBrush x:Key="brushWatermarkForeground" Color="LightSteelBlue" />
+        <SolidColorBrush x:Key="brushWatermarkBorder" Color="Indigo" />
+        <Style x:Key="EntryFieldStyle" TargetType="Grid" >
+            <Setter Property="HorizontalAlignment" Value="Stretch" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+        </Style>-->
     </Window.Resources>
     <Grid>
-        <Frame Name="frame"  Panel.ZIndex="9" Margin="0,0,-0.4,0.6"></Frame>
+        <Frame Name="frame" NavigationUIVisibility="Hidden" Margin="0,0,-0.4,0.6" Panel.ZIndex="100"></Frame>
         <Border MaxWidth="800" Background="Transparent" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,50,0,0">
             <Grid VerticalAlignment="Center" Height="517"  DataContext="{Binding Source={StaticResource UserViewModel}}">
                 <Grid.ColumnDefinitions>
@@ -39,57 +30,118 @@
                     <ColumnDefinition Width="16*"/>
                 </Grid.ColumnDefinitions>
                 <Image Source="img/main.png" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,-67,-92.6,104" Width="488" Height="480" Grid.ColumnSpan="2"></Image>
-                <TabControl Margin="0,70,400,104" Padding="0" Background="Transparent" BorderThickness="0" >
-                    <TabItem x:Name="signIn"  IsSelected="True" VerticalAlignment="Bottom" Margin="-2,0,-84.6,0" HorizontalAlignment="Left" Width="94">
+                <TabControl x:Name="tabControl" Margin="0,70,400,104" Padding="0" Background="Transparent" BorderThickness="0" >
+                    <TabItem x:Name="signIn" IsSelected="True" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="0,0,0,-0.2" Width="57">
                         <TabItem.Header>
-                            <TextBlock FontSize="20" FontWeight="Light" Height="32" Width="88" VerticalAlignment="Top"><Run Text="Вход"/></TextBlock>
+                            <TextBlock Cursor="Hand" FontSize="20" FontWeight="Light" Height="32" Width="88" VerticalAlignment="Top"><Run Text="Вход"/></TextBlock>
                         </TabItem.Header>
                         <TabItem.Content>
-                            <StackPanel >
-                                <!--<Grid>
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition></RowDefinition>
-                                        <RowDefinition></RowDefinition>
-                                    </Grid.RowDefinitions>
-                                    <TextBox Grid.Row="0" Text="{Binding User.Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" x:Name="LoginTextBox"/>
-                                    <TextBox HorizontalAlignment="" Grid.Row="0" Text="{Binding  User.PlaceHolder.Name}" x:Name="LoginPlaceholder"/>
-
-                                </Grid>-->
-
-                                <TextBox Text="{Binding User.Login}"  HorizontalAlignment="Center" MaxHeight="50" Padding="10" TextWrapping="NoWrap"  FontFamily="Gotham Pro " VerticalAlignment="Center" Width="278" Height="37" FontWeight="Light" Margin="0,30,0,0" BorderThickness="0"/>
-                                <TextBox Text="{Binding User.Password}"   HorizontalAlignment="Center" MaxHeight="50" Padding="10"  TextWrapping="NoWrap"  FontFamily="Gotham Pro " VerticalAlignment="Center" Height="37" FontWeight="Light" Width="278" Margin="0,10,0,0"/>
+                            <StackPanel>
+                                <Border CornerRadius="15" Background="white" Margin="0,20,0,0">
+                                    <Grid Width="278" Height="37">
+                                        <TextBox Name="login_textBox" Text="{Binding User.Login}" Background="Transparent" FontWeight="Light" Padding="10" Width="278" Height="37" Panel.ZIndex="9" BorderThickness="0" GotFocus="textBox_gotFocus" LostFocus="textBox_lostFocus"/>
+                                    </Grid>
+                                </Border>
+                                <Border CornerRadius="15" Background="white" Margin="0,10,0,0">
+                                    <Grid Width="278" Height="37">
+                                        <TextBox Name="password_textBox" Text="{Binding User.Password}" Background="Transparent" FontWeight="Light" FontFamily="Gotham Pro" Padding="10" Width="278" Height="37" Panel.ZIndex="9" BorderThickness="0" GotFocus="textBox_gotFocus" LostFocus="textBox_lostFocus"/>
+                                    </Grid>
+                                </Border>
                                 <Button x:Name="button_signIn"  HorizontalAlignment="Center" Content="Войти" 
-                                        Command="{Binding SinginCommand}"
-                                        MaxHeight="50" Height="37" Background="#B4C7D6" FontWeight="Light" Width="278" Margin="0,20,0,0" ></Button>
-                                <!--Click="button_signIn_Click"-->
+                                        Command="{Binding SinginCommand}" Style="{DynamicResource authorization_btn}"
+                                        MaxHeight="50" Margin="0,15,0,0">
+                                    <!--Click="Enter_click"-->
+                                    </Button>
                             </StackPanel>
                         </TabItem.Content>
                     </TabItem>
 
-                    <TabItem x:Name="signUp" IsSelected="True" VerticalAlignment="Center" Margin="52.6,0,-40,0">
+                    <TabItem x:Name="signUp" VerticalAlignment="Center" Margin="87.2,0,-34.4,-0.2">
                         <TabItem.Header>
-                            <TextBlock FontSize="20" FontWeight="Light" Margin="0,0,10.2,0" HorizontalAlignment="Right" Width="135" Height="32" VerticalAlignment="Top"><Run Text="Регистрация"/></TextBlock>
+                            <TextBlock Cursor="Hand" FontSize="20" FontWeight="Light" HorizontalAlignment="Right" Width="185" Height="32" VerticalAlignment="Top"><Run Text="Регистрация"/></TextBlock>
                         </TabItem.Header>
                         <TabItem.Content>
                             <StackPanel HorizontalAlignment="Center">
-                                <TextBox  Text="{Binding User.Name}" HorizontalAlignment="Center" MaxHeight="50" Width="278" Padding="10" TextWrapping="NoWrap" FontFamily="Gotham Pro" VerticalAlignment="Center" Height="37" FontWeight="Light" Margin="0,30,0,0"/>
+                                <Border Name="emailBorder" CornerRadius="15" Background="white" Margin="0,20,0,0">
+                                    <Grid Width="278" Height="37">
+                                        <TextBox Name="name_textBox" Text="{Binding User.Name}" Background="Transparent" BorderThickness="0" FontWeight="Light" Padding="10" Width="278" Height="37" Panel.ZIndex="9" GotFocus="textBox_gotFocus" LostFocus="textBox_lostFocus">
+                                            <!--<Validation.ErrorTemplate>
+                                                <ControlTemplate>
+                                                    <StackPanel>
+                                                        --><!-- Placeholder for the TextBox itself --><!--
+                                                        <AdornedElementPlaceholder x:Name="textBox"/>
+                                                        <TextBlock Text="{Binding [0].ErrorContent}" Foreground="Red"/>
+                                                    </StackPanel>
+                                                </ControlTemplate>
+                                            </Validation.ErrorTemplate>-->
+                                        </TextBox>
+                                    </Grid>
+                                </Border>
+                                <Border CornerRadius="15" Background="white" Margin="0,10,0,0">
+                                    <Grid Width="278" Height="37">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="25*"/>
+                                            <ColumnDefinition Width="114*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <TextBox Name="email_textBox" Text="{Binding User.Email}" Background="Transparent" BorderThickness="0" FontWeight="Light" Padding="10" Width="278" Height="37" GotFocus="textBox_gotFocus" LostFocus="textBox_lostFocus" Grid.ColumnSpan="2">
+                                        </TextBox>
+                                    </Grid>
+                                </Border>
+                                <Border CornerRadius="15" Background="white" Margin="0,10,0,0">
+                                    <Grid Width="278" Height="37">
+                                        <!--<TextBlock Margin="5,2" Padding="5,10,10,10" Text="Логин" Foreground="Black" Opacity="0.3" Style="{StaticResource font_style}" FontSize="13">
+                                            <TextBlock.Visibility>
+                                                <MultiBinding Converter="{StaticResource TextBoxWithPlaceholder}">
+                                                    <Binding ElementName="loginSignUp_textBox" Path="Text.IsEmpty" />
+                                                    <Binding ElementName="loginSignUp_textBox" Path="IsFocused" />
+                                                </MultiBinding>
+                                            </TextBlock.Visibility>
+                                        </TextBlock>-->
+                                        <TextBox Name="loginSignUp_textBox" Text="{Binding User.Login}" Background="Transparent" FontWeight="Light" Padding="10" Width="278" Height="37" Panel.ZIndex="9" BorderThickness="0" GotFocus="textBox_gotFocus" LostFocus="textBox_lostFocus"/>
+                                    </Grid>
+                                </Border>
+                                <Border CornerRadius="15" Background="white" Margin="0,10,0,0">
+                                    <Grid Width="278" Height="37">
+                                        <!--<TextBlock Margin="5,2" Padding="5,10,10,10" Text="Пароль" Foreground="Black" Opacity="0.3" Style="{StaticResource font_style}" FontSize="13">
+                                            <TextBlock.Visibility>
+                                                <MultiBinding Converter="{StaticResource TextBoxWithPlaceholder}">
+                                                    <Binding ElementName="passwordSignUp_textBox" Path="Text.IsEmpty" />
+                                                    <Binding ElementName="passwordSignUp_textBox" Path="IsFocused" />
+                                                </MultiBinding>
+                                            </TextBlock.Visibility>
+                                        </TextBlock>-->
+                                        <TextBox Name="passwordSignUp_textBox" Text="{Binding User.Password}" Background="Transparent" FontWeight="Light" Padding="10" Width="278" Height="37" Panel.ZIndex="9" BorderThickness="0" GotFocus="textBox_gotFocus" LostFocus="textBox_lostFocus"/>
+                                    </Grid>
+                                </Border>
+                                <Border CornerRadius="15" Background="white" Margin="0,10,0,0">
+                                    <Grid Width="278" Height="37">
+                                        <!--<TextBlock Margin="5,2" Padding="5,10,10,10" Text="Подтвердите пароль" Foreground="Black" Opacity="0.3" Style="{StaticResource font_style}" FontSize="13">
+                                            <TextBlock.Visibility>
+                                                <MultiBinding Converter="{StaticResource TextBoxWithPlaceholder}">
+                                                    <Binding ElementName="confirmPassword_textBox" Path="Text.IsEmpty" />
+                                                    <Binding ElementName="confirmPassword_textBox" Path="IsFocused" />
+                                                </MultiBinding>
+                                            </TextBlock.Visibility>
+                                        </TextBlock>-->
+                                        <TextBox Name="confirmPassword_textBox" Text="{Binding ConfirmPassword}" Background="Transparent" FontWeight="Light" Padding="10" Width="278" Height="37" Panel.ZIndex="9" BorderThickness="0" GotFocus="textBox_gotFocus" LostFocus="textBox_lostFocus"/>
+                                    </Grid>
+                                </Border>
+                                <!--<TextBox  Text="{Binding User.Name}" HorizontalAlignment="Center" MaxHeight="50" Width="278" Padding="10" TextWrapping="NoWrap" FontFamily="Gotham Pro" VerticalAlignment="Center" Height="37" FontWeight="Light" Margin="0,30,0,0"/>
                                 <TextBox  Text="{Binding User.Email}" HorizontalAlignment="Center" MaxHeight="50" Width="278" Padding="10" TextWrapping="NoWrap" FontFamily="Gotham Pro" VerticalAlignment="Center"  Height="37" FontWeight="Light" Margin="0,10,0,0"/>
                                 <TextBox  Text="{Binding User.Login}" HorizontalAlignment="Center" MaxHeight="50" Width="278" Padding="10" TextWrapping="NoWrap"  FontFamily="Gotham Pro" VerticalAlignment="Center" Height="37" FontWeight="Light" Margin="0,10,0,0"/>
                                 <TextBox  Text="{Binding User.Password}" HorizontalAlignment="Center" MaxHeight="50" Padding="10" Width="278" TextWrapping="NoWrap" FontFamily="Gotham Pro " VerticalAlignment="Center" Height="37" FontWeight="Light" Margin="0,10,0,0"/>
-                                <TextBox  Text="{Binding ConfirmPassword}" HorizontalAlignment="Center" MaxHeight="50" Padding="10" Width="278" TextWrapping="NoWrap" FontFamily="Gotham Pro " VerticalAlignment="Center" Height="37" FontWeight="Light" Margin="0,10,0,0"/>
+                                <TextBox  Text="{Binding ConfirmPassword}" HorizontalAlignment="Center" MaxHeight="50" Padding="10" Width="278" TextWrapping="NoWrap" FontFamily="Gotham Pro " VerticalAlignment="Center" Height="37" FontWeight="Light" Margin="0,10,0,0"/>-->
                                 <Button x:Name="button_signUp"
-                                        Command="{Binding SingupCommand}"
-                                        HorizontalAlignment="Center" Content="Зарегистрироваться" MaxHeight="50" Height="37" Background="#B4C7D6" FontWeight="Light" Width="278" Margin="0,20,0,0"/>
+                                        Command="{Binding SingupCommand}" Style="{DynamicResource authorization_btn}"
+                                        HorizontalAlignment="Center" Content="Зарегистрироваться" MaxHeight="50" Margin="0,15,0,0"/>
                             </StackPanel>
                         </TabItem.Content>
                     </TabItem>
                 </TabControl>
             </Grid>
         </Border>
-        <Image Source="img/circle.png" HorizontalAlignment="Left" VerticalAlignment="Bottom" Height="360" Margin="0,0,0,0.4" Width="385"/>
-        <Image Source="img/circleTop.png" HorizontalAlignment="Right" VerticalAlignment="Top" Height="360"/>
-        
-
+        <Image Source="img/circle.png" HorizontalAlignment="Left" VerticalAlignment="Bottom" Height="360" Margin="0,0,0,0.4" Width="385" Panel.ZIndex="-1"/>
+        <Image Source="img/circleTop.png" HorizontalAlignment="Right" VerticalAlignment="Top" Height="360" Panel.ZIndex="-1"/>
 
     </Grid>
 </Window>

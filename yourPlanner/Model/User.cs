@@ -1,8 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
+using System.Windows.Ink;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
 using yourPlanner.ViewModel;
 
 namespace yourPlanner.Model
@@ -25,25 +33,12 @@ namespace yourPlanner.Model
                 return name;
             }
             set {
-                //if (!isPlaceHolder) {
-                //    if (value.Equals(""))
-                //    {
-                //        PlaceHolder.Name = DefaultUser.Name;
-                //    }
-                //    else
-                //    {
-                //        PlaceHolder.Name = "";
-                //    }
-                //    name = value;
-                //}
-                //else
-                //{
-                //    name = value;
-                //}
+
                 name = value;
                 OnPropertyChanged("Name");
             } 
         }
+
         public string Email
         {
             get
@@ -56,6 +51,7 @@ namespace yourPlanner.Model
                 OnPropertyChanged("Email");
             }
         }
+
         public string Login
         {
             get
@@ -78,6 +74,58 @@ namespace yourPlanner.Model
             {
                 password = value;
                 OnPropertyChanged("Password");
+            }
+        }
+
+        public byte[] ImageByteArray
+        {
+            get
+            {
+                if (image != null)
+                {
+                    byte[] data;
+                    JpegBitmapEncoder encoder = new JpegBitmapEncoder();
+                    encoder.QualityLevel = 30;
+                    encoder.Frames.Add(BitmapFrame.Create(image as BitmapImage));
+                    using (MemoryStream ms = new MemoryStream())
+                    {
+                        encoder.Save(ms);
+                        data = ms.ToArray();
+                    }
+                    return data;
+                }
+                return null;
+            }
+            set
+            {
+                if (value != null)
+                {
+                    using (var ms = new MemoryStream(value))
+                    {
+                        BitmapImage image = new BitmapImage();
+                        image.BeginInit();
+                        image.CacheOption = BitmapCacheOption.OnLoad; // here
+                        image.StreamSource = ms;
+                        image.EndInit();
+                        Image = image;
+                        OnPropertyChanged(nameof(Image));
+                    }
+                }
+            }
+        }
+
+        private ImageSource image;
+        [NotMapped]
+        public ImageSource Image
+        {
+            get
+            {
+                return image;
+            }
+            set
+            {
+                image = value;
+                OnPropertyChanged(nameof(Image));
             }
         }
         public User()

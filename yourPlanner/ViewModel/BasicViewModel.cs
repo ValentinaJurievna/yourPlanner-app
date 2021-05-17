@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace yourPlanner.ViewModel
 {
-    class BasicViewModel : INotifyPropertyChanged
+    public class BasicViewModel : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
         public void OnPropertyChanged(string prop = "")

@@ -37,10 +37,9 @@ namespace yourPlanner
                 tt_month.Visibility = Visibility.Collapsed;
                 tt_week.Visibility = Visibility.Collapsed;
                 tt_day.Visibility = Visibility.Collapsed;
-                tt_toDo.Visibility = Visibility.Collapsed;
                 tt_passwords.Visibility = Visibility.Collapsed;
-                tt_money.Visibility = Visibility.Collapsed;
-                tt_settings.Visibility = Visibility.Collapsed;
+                //tt_money.Visibility = Visibility.Collapsed;
+                //tt_settings.Visibility = Visibility.Collapsed;
 
             }
             else
@@ -50,10 +49,9 @@ namespace yourPlanner
                 tt_month.Visibility = Visibility.Visible;
                 tt_week.Visibility = Visibility.Visible;
                 tt_day.Visibility = Visibility.Visible;
-                tt_toDo.Visibility = Visibility.Visible;
                 tt_passwords.Visibility = Visibility.Visible;
-                tt_money.Visibility = Visibility.Visible;
-                tt_settings.Visibility = Visibility.Visible;
+                //tt_money.Visibility = Visibility.Visible;
+                //tt_settings.Visibility = Visibility.Visible;
             }
            
         }
@@ -64,32 +62,38 @@ namespace yourPlanner
             if (listViewItem.Name == "home")
             {
                 frame.Navigate(new home());
-                greeting.Opacity = 0;
+                greeting.Visibility = Visibility.Hidden;
             }
             if (listViewItem.Name == "year")
             {
                 frame.Navigate(new Year());
-                greeting.Opacity = 0;
+                greeting.Visibility = Visibility.Hidden;
             }
             if (listViewItem.Name == "month")
             {
                 frame.Navigate(new Month());
-                greeting.Opacity = 0;
+                greeting.Visibility = Visibility.Hidden;
             }
             if (listViewItem.Name == "week")
             {
+                frame.Navigate(new home());
                 frame.Navigate(new Week());
-                greeting.Opacity = 0;
+                greeting.Visibility = Visibility.Hidden;
+            }
+            if (listViewItem.Name == "day")
+            {
+                frame.Navigate(new Day());
+                greeting.Visibility = Visibility.Hidden;
             }
             if (listViewItem.Name == "passwords")
             {
                 frame.Navigate(new Passwords());
-                greeting.Opacity = 0;
+                greeting.Visibility = Visibility.Hidden;
             }
             if (listViewItem.Name == "money")
             {
                 frame.Navigate(new Money());
-                greeting.Opacity = 0;
+                greeting.Visibility = Visibility.Hidden;
             }
         }
 
@@ -108,6 +112,6 @@ namespace yourPlanner
             toggle_Btn.IsChecked = false;
         }
 
-
+        
     }
 }

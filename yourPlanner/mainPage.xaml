@@ -6,25 +6,35 @@
       xmlns:local="clr-namespace:yourPlanner"
       mc:Ignorable="d" 
       d:DesignHeight="800" d:DesignWidth="1200"
-      Title="mainPage" Background="#34558B" ShowsNavigationUI="False">
+      Title="mainPage" Style="{DynamicResource PageStyle}" ShowsNavigationUI="False">
 
     <Grid>
         <Frame x:Name="frame" Height="800" Margin="65,0,0,0"/>
         <Grid x:Name="greeting">
-            <Image Source="img/plane.png" Margin="926,422,-45,-182" RenderTransformOrigin="0.5,0.5" Panel.ZIndex="-10">
-            <Image.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform Angle="1414.403"/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </Image.RenderTransform>
-        </Image>
-        <TextBlock Style="{StaticResource font_style}" TextWrapping="Wrap" Foreground="White"  FontSize="30" Height="224" Panel.ZIndex="-10" Padding="30" HorizontalAlignment="Left" Margin="300,288,0,288" Width="870">“Когда кажется, что весь мир настроен против тебя, помни, что самолёт взлетает против ветра!”</TextBlock>
-        <TextBlock Style="{StaticResource font_style}" Foreground="White"  FontSize="25" Padding="30" Height="114" Margin="310,100,0,0" Panel.ZIndex="-10">&#169; Генри Форд</TextBlock>
+            <Image Source="img/circleTop.png" Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Top" Height="360" Panel.ZIndex="-1" RenderTransformOrigin="0.5,0.5" Margin="58,12,0,0">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="270"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Image Style="{DynamicResource planePhoto}" Margin="926,422,-45,-182" RenderTransformOrigin="0.5,0.5" Panel.ZIndex="-10">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="1414.403"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <TextBlock Style="{DynamicResource font_style}" TextWrapping="Wrap" FontSize="30" Height="224" Panel.ZIndex="-10" Padding="30" HorizontalAlignment="Left" Margin="300,288,0,288" Width="870">“Когда кажется, что весь мир настроен против тебя, помни, что самолёт взлетает против ветра!”</TextBlock>
+            <TextBlock Style="{DynamicResource font_style}" FontSize="25" Padding="30" Height="114" Margin="310,100,0,0" Panel.ZIndex="-10">&#169; Генри Форд</TextBlock>
         </Grid>
-       
+
         <Grid>
             <!-- Navigation Panel -->
             <Grid   x:Name="nav_pnl"
@@ -36,9 +46,9 @@
                     <!--// Grid for the Menu Toggle Button //-->
                     <Grid Height="72" Margin="0,0,-0.2,0">
                         <!--// Menu title text //-->
-                        <StackPanel Orientation="Vertical" Margin="80,0,0,0" VerticalAlignment="Center">
+                        <StackPanel DataContext="{Binding Source={StaticResource UserViewModel}}" Orientation="Vertical" Margin="80,0,0,0" VerticalAlignment="Center">
                             <TextBlock
-                                    Text="Валентина"
+                                    Text="{Binding Path=User.Name}"
                                     Foreground="Black"
                                     FontSize="18"
                                     Background="Transparent"
@@ -47,11 +57,11 @@
                             </TextBlock>
 
                             <TextBlock
-                                    Text="judesignnn@gmail.com"
+                                    Text="{Binding Path=User.Email}"
                                     Foreground="Black"
                                     FontSize="13"
                                     Background="Transparent"
-                                    Style="{StaticResource font_style}">
+                                    Style="{DynamicResource font_style}">
                             </TextBlock>
                         </StackPanel>
 
@@ -63,9 +73,9 @@
                                       Height="30"
                                       Width="30"
                                       BorderThickness="0"
-                                      Style="{StaticResource tb_style}" Unchecked="Tg_Btn_Unchecked" Checked="Tg_Btn_Checked" Margin="15,0,0,0">
+                                      Style="{DynamicResource tb_style}" Unchecked="Tg_Btn_Unchecked" Checked="Tg_Btn_Checked" Margin="15,0,0,0">
                             <ToggleButton.Background>
-                                <ImageBrush ImageSource="img/menu.png"
+                                <ImageBrush ImageSource="/img/menu.png"
                                             />
                             </ToggleButton.Background>
 
@@ -117,29 +127,30 @@
                     <ListView  x:Name="LV"
                                Background="Transparent"
                                BorderBrush="Transparent"
-                               ScrollViewer.HorizontalScrollBarVisibility="Hidden" Margin="0,0,-0.2,0" Height="599">
+                               ScrollViewer.HorizontalScrollBarVisibility="Hidden" Margin="0,19,-0.2,0" Height="556">
 
                         <!-- Home -->
                         <ListViewItem x:Name="home" HorizontalAlignment="Left"
-                                      Margin="0,0,0,15" MouseEnter="ListViewItem_MouseEnter" MouseDown="ListViewItem_MouseDown" MouseUp="ListViewItem_MouseDown"
+                                      Margin="0,0,0,25" MouseEnter="ListViewItem_MouseEnter" MouseDown="ListViewItem_MouseDown" MouseUp="ListViewItem_MouseDown"
                                       >
                             <StackPanel Orientation="Horizontal" Width="270">
                                 <Image Source="img/home.png" Margin="10,0,0,0" Height="30"/>
                                 <TextBlock Text="Главная"
                                            Margin="20,0,0,0"
-                                           Style="{StaticResource font_style}"/>
+                                           Foreground="Black"
+                                           Style="{DynamicResource font_style}"/>
                             </StackPanel>
 
                             <ListViewItem.ToolTip>
                                 <ToolTip x:Name="tt_home"
                                          Content="Главная"
-                                         Style="{StaticResource tt_style}"/>
+                                         Style="{DynamicResource tt_style}"/>
                             </ListViewItem.ToolTip>
                         </ListViewItem>
 
                         <!-- Year -->
                         <ListViewItem Name="year" HorizontalAlignment="Left"
-                                      Margin="0,0,0,15" MouseEnter="ListViewItem_MouseEnter" MouseDown="ListViewItem_MouseDown" MouseUp="ListViewItem_MouseDown"
+                                      Margin="0,0,0,25" MouseEnter="ListViewItem_MouseEnter" MouseDown="ListViewItem_MouseDown" MouseUp="ListViewItem_MouseDown"
                                       >
 
                             <StackPanel Orientation="Horizontal"
@@ -147,123 +158,95 @@
                                 <Image Source="img/year.png" Margin="10,0,0,0" Height="30"/>
                                 <TextBlock Text="Планы на год"
                                            Margin="20,0,0,0"
-                                           Style="{StaticResource font_style}"></TextBlock>
+                                           Foreground="Black"
+                                           Style="{DynamicResource font_style}"></TextBlock>
                             </StackPanel>
                             <ListViewItem.ToolTip>
                                 <ToolTip x:Name="tt_year"
                                          Content="Планы на год"
-                                         Style="{StaticResource tt_style}"/>
+                                         Style="{DynamicResource tt_style}"/>
                             </ListViewItem.ToolTip>
                         </ListViewItem>
 
                         <!-- Month -->
                         <ListViewItem x:Name="month" HorizontalAlignment="Left"
-                                      Margin="0,0,0,15" MouseEnter="ListViewItem_MouseEnter" MouseDown="ListViewItem_MouseDown" MouseUp="ListViewItem_MouseDown"
+                                      Margin="0,0,0,25" MouseEnter="ListViewItem_MouseEnter" MouseDown="ListViewItem_MouseDown" MouseUp="ListViewItem_MouseDown"
                                       >
                             <StackPanel Orientation="Horizontal"
                                         Width="270">
                                 <Image Source="img/month.png" Margin="10,0,0,0" Height="30"/>
                                 <TextBlock Text="Планы на месяц"
                                            Margin="20,0,0,0"
-                                           Style="{StaticResource font_style}"/>
+                                           Foreground="Black"
+                                           Style="{DynamicResource font_style}"/>
                             </StackPanel>
                             <ListViewItem.ToolTip>
                                 <ToolTip x:Name="tt_month"
                                          Content="Планы на месяц"
-                                         Style="{StaticResource tt_style}"/>
+                                         Style="{DynamicResource tt_style}"/>
                             </ListViewItem.ToolTip>
                         </ListViewItem>
 
                         <!-- Week -->
                         <ListViewItem x:Name="week" HorizontalAlignment="Left"
-                                      Margin="0,0,0,15" MouseEnter="ListViewItem_MouseEnter" MouseDown="ListViewItem_MouseDown" MouseUp="ListViewItem_MouseDown"
+                                      Margin="0,0,0,25" MouseEnter="ListViewItem_MouseEnter" MouseDown="ListViewItem_MouseDown" MouseUp="ListViewItem_MouseDown"
                                       >
                             <StackPanel Orientation="Horizontal"
                                         Width="270">
                                 <Image Source="img/week.png" Margin="10,0,0,0" Height="30"/>
                                 <TextBlock Text="Планы на неделю"
                                            Margin="20,0,0,0"
-                                           Style="{StaticResource font_style}"/>
+                                           Foreground="Black"
+                                           Style="{DynamicResource font_style}"/>
                             </StackPanel>
                             <ListViewItem.ToolTip>
                                 <ToolTip x:Name="tt_week"
                                          Content="Планы на неделю"
-                                         Style="{StaticResource tt_style}"/>
+                                         Style="{DynamicResource tt_style}"/>
                             </ListViewItem.ToolTip>
                         </ListViewItem>
 
                         <!-- Day -->
-                        <ListViewItem HorizontalAlignment="Left"
-                                      Margin="0,0,0,15" MouseEnter="ListViewItem_MouseEnter"
+                        <ListViewItem Name="day" HorizontalAlignment="Left"
+                                      Margin="0,0,0,25" MouseEnter="ListViewItem_MouseEnter" MouseDown="ListViewItem_MouseDown" MouseUp="ListViewItem_MouseDown"
                                       >
                             <StackPanel Orientation="Horizontal"
                                         Width="270">
                                 <Image Source="img/day.png"  Margin="10,0,0,0" Height="30"/>
                                 <TextBlock Text="Планы на день"
                                            Margin="20,0,0,0"
-                                           Style="{StaticResource font_style}"/>
+                                           Foreground="Black"
+                                           Style="{DynamicResource font_style}"/>
                             </StackPanel>
                             <ListViewItem.ToolTip>
                                 <ToolTip x:Name="tt_day"
                                          Content="Планы на день"
-                                         Style="{StaticResource tt_style}"/>
+                                         Style="{DynamicResource tt_style}"/>
                             </ListViewItem.ToolTip>
                         </ListViewItem>
-
-                        <!-- to-do list -->
-                        <ListViewItem HorizontalAlignment="Left"
-                                      Margin="0,0,0,15" MouseEnter="ListViewItem_MouseEnter"
-                                      >
-                            <StackPanel Orientation="Horizontal"
-                                        Width="270">
-                                <Image Source="img/list.png" Margin="10,0,0,0" Height="30"/>
-                                <TextBlock Text="Список дел"
-                                           Margin="20,0,0,0"
-                                           Style="{StaticResource font_style}"/>
-                                <!--<ComboBox>
-                                    <ComboBoxItem IsSelected="True">
-                                        <StackPanel Orientation="Horizontal">
-                                            <TextBlock>Название 1</TextBlock>
-                                        </StackPanel>
-                                    </ComboBoxItem>
-                                    <ComboBoxItem>
-                                        <StackPanel Orientation="Horizontal">
-                                            <TextBlock>Название 1</TextBlock>
-                                        </StackPanel>
-                                    </ComboBoxItem>
-                                </ComboBox>-->
-                            </StackPanel>
-                            <ListViewItem.ToolTip>
-                                <ToolTip x:Name="tt_toDo"
-                                         Content="Список дел"
-                                         Style="{StaticResource tt_style}"/>
-                            </ListViewItem.ToolTip>
-
-                        </ListViewItem>
-
-
 
                         <!-- Passwords -->
                         <ListViewItem x:Name="passwords" HorizontalAlignment="Left"
-                                      Margin="0,0,0,15" MouseEnter="ListViewItem_MouseEnter" MouseDown="ListViewItem_MouseDown" MouseUp="ListViewItem_MouseDown"
+                                      Margin="0,0,0,25" MouseEnter="ListViewItem_MouseEnter" MouseDown="ListViewItem_MouseDown" MouseUp="ListViewItem_MouseDown"
                                       >
                             <StackPanel Orientation="Horizontal"
                                         Width="270">
                                 <Image Source="img/passwords.png" Margin="10,0,0,0" Height="30"/>
                                 <TextBlock Text="Логины и пароли"
                                            Margin="20,0,0,0"
-                                           Style="{StaticResource font_style}"/>
+                                           Foreground="Black"
+                                           Style="{DynamicResource font_style}"/>
                             </StackPanel>
 
                             <ListViewItem.ToolTip>
                                 <ToolTip x:Name="tt_passwords"
                                          Content="Логины и пароли"
-                                         Style="{StaticResource tt_style}"/>
+                                         Style="{DynamicResource tt_style}"/>
                             </ListViewItem.ToolTip>
                         </ListViewItem>
 
                         <!-- Money -->
-                        <ListViewItem x:Name="money" HorizontalAlignment="Left"
+                        <!--<ListViewItem x:Name="money" HorizontalAlignment="Left"
                                       Margin="0,0,0,15" MouseEnter="ListViewItem_MouseEnter" MouseDown="ListViewItem_MouseDown" MouseUp="ListViewItem_MouseDown" Padding="4"
                                       >
                             <StackPanel Orientation="Horizontal"
@@ -271,17 +254,18 @@
                                 <Image Source="img/money.png" Margin="10,0,0,0" Height="30"/>
                                 <TextBlock Text="Расходы и доходы"
                                            Margin="20,0,0,0"
-                                           Style="{StaticResource font_style}"/>
+                                           Foreground="Black"
+                                           Style="{DynamicResource font_style}"/>
                             </StackPanel>
                             <ListViewItem.ToolTip>
                                 <ToolTip x:Name="tt_money"
                                          Content="Расходы и доходы"
-                                         Style="{StaticResource tt_style}"/>
+                                         Style="{DynamicResource tt_style}"/>
                             </ListViewItem.ToolTip>
-                        </ListViewItem>
+                        </ListViewItem>-->
 
                         <!-- Settings -->
-                        <ListViewItem HorizontalAlignment="Left"
+                        <!--<ListViewItem HorizontalAlignment="Left"
                                       Margin="0,0,0,15" MouseEnter="ListViewItem_MouseEnter" Padding="4"
                                       >
                             <StackPanel Orientation="Horizontal"
@@ -289,14 +273,15 @@
                                 <Image Source="img/setting.png" Margin="10,0,0,0" Height="30"/>
                                 <TextBlock Text="Настройки"
                                            Margin="20,0,0,0"
-                                           Style="{StaticResource font_style}"/>
+                                           Foreground="Black"
+                                           Style="{DynamicResource font_style}"/>
                             </StackPanel>
                             <ListViewItem.ToolTip>
                                 <ToolTip x:Name="tt_settings"
                                          Content="Настройки"
-                                         Style="{StaticResource tt_style}"/>
+                                         Style="{DynamicResource tt_style}"/>
                             </ListViewItem.ToolTip>
-                        </ListViewItem>
+                        </ListViewItem>-->
 
                         <!-- Listview items style -->
                         <ListView.ItemContainerStyle>
@@ -324,7 +309,7 @@
                                                     </MultiTrigger.Conditions>
                                                     <Setter Property="Background"
                                                             TargetName="Bd"
-                                                            Value="#F4DBB2"/>
+                                                            Value="#E7D7B9"/>
                                                     <Setter Property="Width"
                                                             Value="250"/>
                                                     <Setter Property="Cursor"
@@ -338,6 +323,7 @@
                         </ListView.ItemContainerStyle>
                     </ListView>
                     <local:ToggleSwitchMode x:Name="switchMode" HorizontalAlignment="Left" Height="31" Width="55" Margin="5,0,0,0" VerticalAlignment="Bottom" />
+
 
                     <!--<ComboBox Background="#B4C7D6">
                         <ComboBoxItem IsSelected="True">

@@ -4,79 +4,29 @@
              xmlns:calendar="clr-namespace:WPF.EventCalendar;assembly=WPF.EventCalendar"
              xmlns:local="clr-namespace:yourPlanner"
              xmlns:vm="clr-namespace:yourPlanner.ViewModel"
+             xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
              StartupUri="Authorization.xaml">
     <Application.Resources>
-        <vm:DailyPlansViewModel x:Key="DailyPlansViewModel"/>
-        <vm:UserViewModel x:Key="UserViewModel"/>
-        <vm:WeekViewModel x:Key="WeekViewModel"/>
-        <!--// Toggle Button Style Template //-->
-        <ImageBrush x:Key="tb_mouse_over"
-                    ImageSource="img/menu.png"/>
 
-        <!--// Text font style //-->
-        <Style x:Key="font_style" TargetType="TextBlock">
-            <Setter Property="FontFamily"
-                    Value="Gotham Pro"/>
-            <Setter Property="FontWeight" Value="Light"></Setter>
-            <Setter Property="VerticalAlignment"
-                    Value="Center"/>
-            <Setter Property="HorizontalAlignment"
-                    Value="Left"/>
-            <Setter Property="Foreground"
-                    Value="Black"/>
-            <Setter Property="FontSize"
-                    Value="16"/>
-        </Style>
+        
 
-        <!--// Tooltip Style Template //-->
-        <Style TargetType="ToolTip" x:Key="tt_style">
-            <Setter Property="Placement" Value="Right"/>
-            <Setter Property="Height" Value="40"/>
-            <Setter Property="Width" Value="150"/>
-            <Setter Property="Margin" Value="20,0,0,0"/>
-            <Setter Property="Background" Value="#F4DBB2"/>
-            <Setter Property="BorderBrush" Value="Transparent"/>
-            <Setter Property="Foreground" Value="Black"/>
-            <Setter Property="FontFamily" Value="Gotham Pro"/>
-            <Setter Property="FontWeight" Value="Light"></Setter>
-            <Setter Property="FontSize" Value="14"/>
-            <Setter Property="PlacementRectangle" Value="60,0,0,0"/>
-            <Setter Property="HorizontalOffset" Value="15"/>
-            <Setter Property="VerticalOffset" Value="6"/>
-            <Setter Property="HorizontalContentAlignment" Value="Center"/>
-        </Style>
+        <ResourceDictionary>
+            <vm:DailyPlansViewModel x:Key="DailyPlansViewModel"/>
+            <vm:UserViewModel x:Key="UserViewModel"/>
+            <vm:WeekViewModel x:Key="WeekViewModel"/>
+            <vm:LoginPasswordViewModel x:Key="LoginPasswordViewModel"/>
+            <vm:YearPlansViewModel x:Key="YearPlansViewModel"/>
+            <vm:EditProfileViewModel x:Key="EditProfileViewModel"/>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Themes/Dark.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+        
+        
 
-        <Style x:Key="tb_style" TargetType="{x:Type ToggleButton}">
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="{x:Type ToggleButton}">
-                        <Border  x:Name="border"
-                                 BorderThickness="{TemplateBinding BorderThickness}"
-                                 Background="{TemplateBinding Background}"
-                                 SnapsToDevicePixels="True">
-                        </Border>
-                        <ControlTemplate.Triggers>
-                            <Trigger Property="IsMouseOver" Value="true">
-                                <Setter Property="Background"
-                                        TargetName="border"
-                                        Value="{StaticResource tb_mouse_over}"/>
-                                <Setter Property="BorderBrush"
-                                        TargetName="border"
-                                        Value="{StaticResource tb_mouse_over}"/>
-                            </Trigger>
-                            <Trigger Property="IsChecked" Value="true">
-                                <Setter Property="Background"
-                                        TargetName="border"
-                                        Value="{StaticResource tb_mouse_over}"/>
-                                <Setter Property="BorderBrush"
-                                        TargetName="border"
-                                        Value="{StaticResource tb_mouse_over}"/>
-                            </Trigger>
-                        </ControlTemplate.Triggers>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
+        
+        
+       
 
         <!--<Style TargetType="TextBox">
             <Style.Setters>
@@ -100,68 +50,19 @@
             </Style.Setters>
         </Style>-->
 
-        <Style TargetType="TabItem">
-            <Setter Property="Foreground" Value="white"></Setter>
-            <Setter Property="FontFamily" Value="Gotham Pro"></Setter>
-            <Setter Property="VerticalAlignment" Value="Center"></Setter>
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="TabItem">
-                        <Grid Name="Registration">
-                            <ContentPresenter x:Name="ContentSite"
-                                        VerticalAlignment="Center"
-                                        HorizontalAlignment="Center"
-                                        ContentSource="Header"
-                                        Margin="0, 0, 0, 0"/>
-                        </Grid>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
+       
 
-        <Style TargetType="Button">
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="Button">
-                        <Border
-                            x:Name="Border" 
-                            CornerRadius="15"
-                            BorderBrush="{TemplateBinding BorderBrush}"
-                            BorderThickness="{TemplateBinding BorderThickness}"
-                            Background="{TemplateBinding Background}">
-                            <ContentControl Margin="{TemplateBinding Padding}"
-                               HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                               VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-                               Content="{TemplateBinding Content}" />
-                        </Border>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
+        
 
-        <Style x:Key="standart_btn" TargetType="Button">
-            <Setter Property="FontFamily" Value="Gotham Pro"></Setter>
-            <Setter Property="FontWeight" Value="Light"></Setter>
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="Button">
-                        <Border
-                            x:Name="Border" 
-                            CornerRadius="15"
-                            BorderBrush="{TemplateBinding BorderBrush}"
-                            BorderThickness="0"
-                            Background="#34558B">
-                            <ContentControl Margin="{TemplateBinding Padding}"
-                               HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                               VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-                               Content="{TemplateBinding Content}" />
-                        </Border>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
+        
 
-        <Style x:Key="textBox" TargetType="TextBox">
+        
+
+        
+
+        
+
+        <!--<Style x:Key="textBox" TargetType="TextBox">
             <Setter Property="FontFamily" Value="Gotham Pro"></Setter>
             <Setter Property="FontWeight" Value="Light"></Setter>
             <Setter Property="Foreground" Value="Gray"></Setter>
@@ -173,7 +74,7 @@
                             CornerRadius="15"
                             BorderBrush="{TemplateBinding BorderBrush}"
                             BorderThickness="{TemplateBinding BorderThickness}"
-                            Background="#BAC9D3">
+                            Background="White">
                             <ContentControl Margin="{TemplateBinding Padding}"
                                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
@@ -182,9 +83,9 @@
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
-        </Style>
+        </Style>-->
 
-        <Style x:Key="richTextBox" TargetType="RichTextBox">
+        <!--<Style x:Key="richTextBox" TargetType="RichTextBox">
             <Setter Property="FontFamily" Value="Gotham Pro"></Setter>
             <Setter Property="FontWeight" Value="Light"></Setter>
             <Setter Property="FontSize" Value="18"></Setter>
@@ -202,50 +103,12 @@
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
-        </Style>
+        </Style>-->
 
 
-        <Style x:Key="{x:Type CheckBox}" TargetType="CheckBox">
-            <Setter Property="SnapsToDevicePixels" Value="true"/>
-            <Setter Property="OverridesDefaultStyle" Value="true"/>
-            <Setter Property="FontFamily" Value="Gotham Pro"/>
-            <Setter Property="Background" Value="#3f3f3f"/>
-            <Setter Property="FontSize" Value="12"/>
-            <Setter Property="VerticalContentAlignment" Value="Center"/>
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="CheckBox">
-                        <BulletDecorator Background="Transparent">
-                            <BulletDecorator.Bullet>
-                                <Border x:Name="Border"  
-                                     Width="19" 
-                                     Height="19" 
-                                     CornerRadius="10,10,10,10"
-                                     Background="Transparent"
-                                     BorderBrush="Black"
-                                     BorderThickness="1" >
-                                    <Image x:Name="CheckMark" Source="img/check-mark.png" Width="17" Height="17" HorizontalAlignment="Center"/>
-                                </Border>
-                            </BulletDecorator.Bullet>
-                            <ContentPresenter Margin="8,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Left" RecognizesAccessKey="True"/>
-                        </BulletDecorator>
-                        <ControlTemplate.Triggers>
-                            <Trigger Property="IsChecked" Value="false">
-                                <Setter TargetName="CheckMark" Property="Visibility" Value="Collapsed"/>
-                            </Trigger>
-                            <Trigger Property="IsMouseOver" Value="true">
-                                <Setter TargetName="Border" Property="Background" Value="#F4DBB2" />
-                            </Trigger>
-                            <Trigger Property="IsEnabled" Value="false">
-                                <Setter Property="Foreground" Value="Transparent"/>
-                            </Trigger>
-                        </ControlTemplate.Triggers>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
+        
 
-        <Style x:Key="placeHolder" TargetType="{x:Type TextBox}" BasedOn="{StaticResource {x:Type TextBox}}">
+        <!--<Style x:Key="placeHolder" TargetType="{x:Type TextBox}" BasedOn="{StaticResource {x:Type TextBox}}">
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type TextBox}">
@@ -290,8 +153,27 @@
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
-        </Style>
+        </Style>-->
 
+
+
+        
+
+
+
+
+
+
+
+
+        
+
+
+       
+        <!--<ObjectDataProvider 
+    ObjectInstance="{x:Type Colors}" 
+    MethodName="GetProperties" 
+    x:Key="colorPropertiesOdp" />-->
 
     </Application.Resources>
 </Application>

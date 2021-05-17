@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-G:\Курсовой проект ООП\yourPlanner\yourPlanner\obj\Debug\
+G:\yourPlanner-app\yourPlanner\obj\Debug\
 yourPlanner
 none
 false
 DEBUG;TRACE
-G:\Курсовой проект ООП\yourPlanner\yourPlanner\App.xaml
-12788464017
+G:\yourPlanner-app\yourPlanner\App.xaml
+16106698122
 11850454861
-24-1026673144
-18-1554466555
-Authorization.xaml;CreateNote.xaml;home.xaml;mainPage.xaml;Money.xaml;Month.xaml;Passwords.xaml;Themes\Dark.xaml;Themes\Light.xaml;ToggleSwitchMode.xaml;Week.xaml;Year.xaml;
+36933859010
+20-420234748
+Authorization.xaml;CreateNote.xaml;Day.xaml;EditProfile.xaml;home.xaml;mainPage.xaml;Money.xaml;Month.xaml;Passwords.xaml;Settings.xaml;Themes\Dark.xaml;Themes\Light.xaml;UserControl\ToggleSwitchMode.xaml;Week.xaml;Windows\notificationWindow.xaml;Year.xaml;
 
 False
 

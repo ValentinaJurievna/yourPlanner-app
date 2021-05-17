@@ -44,6 +44,9 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Expression.Interactions, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Windows.Interactivity.WPF.2.0.20525\lib\net40\Microsoft.Expression.Interactions.dll</HintPath>
+    </Reference>
     <Reference Include="nuget, Version=5.3.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\WPF.EventCalendar-master\WPF.EventCalendar\nuget.exe</HintPath>
@@ -51,6 +54,9 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Windows.Interactivity, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Windows.Interactivity.WPF.2.0.20525\lib\net40\System.Windows.Interactivity.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -75,6 +81,19 @@
       <DependentUpon>CreateNote.xaml</DependentUpon>
     </Compile>
     <Compile Include="DataBaseConnector\PlannerDataBaseContext.cs" />
+    <Compile Include="Day.xaml.cs">
+      <DependentUpon>Day.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="EditProfile.xaml.cs">
+      <DependentUpon>EditProfile.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Model\DayInfo.cs" />
+    <Compile Include="Model\LoginPassword.cs" />
+    <Compile Include="Model\WeekPriority.cs" />
+    <Compile Include="Model\YearPlans.cs" />
+    <Compile Include="Settings.xaml.cs">
+      <DependentUpon>Settings.xaml</DependentUpon>
+    </Compile>
     <Compile Include="StaticFrame.cs" />
     <Compile Include="home.xaml.cs">
       <DependentUpon>home.xaml</DependentUpon>
@@ -90,15 +109,22 @@
     <Compile Include="Passwords.xaml.cs">
       <DependentUpon>Passwords.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ToggleSwitchMode.xaml.cs">
+    <Compile Include="System\Drawing\Color.cs" />
+    <Compile Include="UserControl\ToggleSwitchMode.xaml.cs">
       <DependentUpon>ToggleSwitchMode.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModel\BasicViewModel.cs" />
     <Compile Include="ViewModel\DailyPlansViewModel.cs" />
+    <Compile Include="ViewModel\EditProfileViewModel.cs" />
+    <Compile Include="ViewModel\LoginPasswordViewModel.cs" />
     <Compile Include="ViewModel\UserViewModel.cs" />
     <Compile Include="ViewModel\WeekViewModel.cs" />
+    <Compile Include="ViewModel\YearPlansViewModel.cs" />
     <Compile Include="Week.xaml.cs">
       <DependentUpon>Week.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\notificationWindow.xaml.cs">
+      <DependentUpon>notificationWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Year.xaml.cs">
       <DependentUpon>Year.xaml</DependentUpon>
@@ -116,6 +142,14 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="CreateNote.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Day.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="EditProfile.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -139,6 +173,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Settings.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Themes\Dark.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -147,11 +185,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="ToggleSwitchMode.xaml">
+    <Page Include="UserControl\ToggleSwitchMode.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Week.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\notificationWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -181,6 +223,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="ClassDiagram1.cd" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -201,19 +244,6 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="img\circleBlue.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Assets\closeBtn_default.png" />
-    <Resource Include="Assets\closeBtn_MouseOver.png" />
-    <Resource Include="Assets\img_background.png" />
-    <Resource Include="Assets\img_contact.png" />
-    <Resource Include="Assets\img_home.png" />
-    <Resource Include="Assets\img_map.png" />
-    <Resource Include="Assets\img_message.png" />
-    <Resource Include="Assets\img_setting.png" />
-    <Resource Include="Assets\img_signout.png" />
-    <Resource Include="Assets\tgBtn_default.png" />
-    <Resource Include="Assets\tgBtn_MouseOver.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="img\menu.png" />
@@ -277,6 +307,17 @@
     <Resource Include="img\search.png" />
     <Resource Include="img\setting.png" />
     <Resource Include="img\plane.png" />
+    <Resource Include="img\calendar.png" />
+    <Resource Include="img\delete.png" />
+    <Resource Include="img\smile.png" />
+    <Resource Include="img\tick.png" />
+    <Resource Include="img\delete2.png" />
+    <Resource Include="img\Bored.png" />
+    <Resource Include="img\stickDark.png" />
+    <Resource Include="img\list2.png" />
+    <Resource Include="img\list3.png" />
+    <Resource Include="img\userInfo.png" />
+    <Resource Include="img\planeDark.png" />
     <Content Include="img\Vector.svg" />
   </ItemGroup>
   <ItemGroup>

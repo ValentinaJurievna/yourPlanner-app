@@ -19,8 +19,6 @@ G:\Курсовой проект ООП\yourPlanner\yourPlanner\obj\Debug\mainPa
 G:\Курсовой проект ООП\yourPlanner\yourPlanner\obj\Debug\Year.g.cs
 G:\Курсовой проект ООП\yourPlanner\yourPlanner\obj\Debug\Year.baml
 G:\Курсовой проект ООП\yourPlanner\yourPlanner\obj\Debug\GeneratedInternalTypeHelper.g.cs
-G:\Курсовой проект ООП\yourPlanner\yourPlanner\obj\Debug\ToggleSwitchMode.g.cs
-G:\Курсовой проект ООП\yourPlanner\yourPlanner\obj\Debug\ToggleSwitchMode.baml
 G:\Курсовой проект ООП\yourPlanner\yourPlanner\obj\Debug\home.g.cs
 G:\Курсовой проект ООП\yourPlanner\yourPlanner\obj\Debug\home.baml
 G:\Курсовой проект ООП\yourPlanner\yourPlanner\obj\Debug\Week.g.cs
@@ -44,3 +42,75 @@ G:\Курсовой проект ООП\yourPlanner\yourPlanner\bin\Debug\Entity
 G:\Курсовой проект ООП\yourPlanner\yourPlanner\bin\Debug\EntityFramework.SqlServer.dll
 G:\Курсовой проект ООП\yourPlanner\yourPlanner\bin\Debug\EntityFramework.xml
 G:\Курсовой проект ООП\yourPlanner\yourPlanner\bin\Debug\EntityFramework.SqlServer.xml
+G:\Курсовой проект ООП\yourPlanner\yourPlanner\obj\Debug\Settings.g.cs
+G:\Курсовой проект ООП\yourPlanner\yourPlanner\obj\Debug\Settings.baml
+G:\Курсовой проект ООП\yourPlanner\yourPlanner\obj\Debug\Day.g.cs
+G:\Курсовой проект ООП\yourPlanner\yourPlanner\obj\Debug\Day.baml
+G:\Курсовой проект ООП\yourPlanner\yourPlanner\bin\Debug\Microsoft.Expression.Interactions.dll
+G:\Курсовой проект ООП\yourPlanner\yourPlanner\bin\Debug\System.Windows.Interactivity.dll
+G:\Курсовой проект ООП\yourPlanner\yourPlanner\bin\Debug\Microsoft.Expression.Interactions.xml
+G:\Курсовой проект ООП\yourPlanner\yourPlanner\bin\Debug\System.Windows.Interactivity.xml
+G:\Курсовой проект ООП\yourPlanner\yourPlanner\obj\Debug\UserControl\ToggleSwitchMode.g.cs
+G:\Курсовой проект ООП\yourPlanner\yourPlanner\obj\Debug\UserControl\ToggleSwitchMode.baml
+G:\Курсовой проект ООП\yourPlanner\yourPlanner\obj\Debug\Windows\notificationWindow.g.cs
+G:\Курсовой проект ООП\yourPlanner\yourPlanner\obj\Debug\Windows\notificationWindow.baml
+G:\Курсовой проект ООП\yourPlanner\yourPlanner\obj\Debug\EditProfile.g.cs
+G:\Курсовой проект ООП\yourPlanner\yourPlanner\obj\Debug\EditProfile.baml
+G:\yourPlanner-app\yourPlanner\bin\Debug\yourPlanner.exe.config
+G:\yourPlanner-app\yourPlanner\bin\Debug\yourPlanner.exe
+G:\yourPlanner-app\yourPlanner\bin\Debug\yourPlanner.pdb
+G:\yourPlanner-app\yourPlanner\bin\Debug\EntityFramework.dll
+G:\yourPlanner-app\yourPlanner\bin\Debug\EntityFramework.SqlServer.dll
+G:\yourPlanner-app\yourPlanner\bin\Debug\Microsoft.Expression.Interactions.dll
+G:\yourPlanner-app\yourPlanner\bin\Debug\nuget.exe
+G:\yourPlanner-app\yourPlanner\bin\Debug\System.Windows.Interactivity.dll
+G:\yourPlanner-app\yourPlanner\bin\Debug\WPF.EventCalendar.dll
+G:\yourPlanner-app\yourPlanner\bin\Debug\WPF.EventCalendar.pdb
+G:\yourPlanner-app\yourPlanner\bin\Debug\EntityFramework.xml
+G:\yourPlanner-app\yourPlanner\bin\Debug\EntityFramework.SqlServer.xml
+G:\yourPlanner-app\yourPlanner\bin\Debug\Microsoft.Expression.Interactions.xml
+G:\yourPlanner-app\yourPlanner\bin\Debug\System.Windows.Interactivity.xml
+G:\yourPlanner-app\yourPlanner\obj\Debug\yourPlanner.csprojAssemblyReference.cache
+G:\yourPlanner-app\yourPlanner\obj\Debug\Authorization.g.cs
+G:\yourPlanner-app\yourPlanner\obj\Debug\CreateNote.g.cs
+G:\yourPlanner-app\yourPlanner\obj\Debug\Day.g.cs
+G:\yourPlanner-app\yourPlanner\obj\Debug\EditProfile.g.cs
+G:\yourPlanner-app\yourPlanner\obj\Debug\home.g.cs
+G:\yourPlanner-app\yourPlanner\obj\Debug\mainPage.g.cs
+G:\yourPlanner-app\yourPlanner\obj\Debug\Money.g.cs
+G:\yourPlanner-app\yourPlanner\obj\Debug\Month.g.cs
+G:\yourPlanner-app\yourPlanner\obj\Debug\Passwords.g.cs
+G:\yourPlanner-app\yourPlanner\obj\Debug\Settings.g.cs
+G:\yourPlanner-app\yourPlanner\obj\Debug\UserControl\ToggleSwitchMode.g.cs
+G:\yourPlanner-app\yourPlanner\obj\Debug\Week.g.cs
+G:\yourPlanner-app\yourPlanner\obj\Debug\Windows\notificationWindow.g.cs
+G:\yourPlanner-app\yourPlanner\obj\Debug\Year.g.cs
+G:\yourPlanner-app\yourPlanner\obj\Debug\App.g.cs
+G:\yourPlanner-app\yourPlanner\obj\Debug\yourPlanner_Content.g.cs
+G:\yourPlanner-app\yourPlanner\obj\Debug\GeneratedInternalTypeHelper.g.cs
+G:\yourPlanner-app\yourPlanner\obj\Debug\yourPlanner_MarkupCompile.cache
+G:\yourPlanner-app\yourPlanner\obj\Debug\yourPlanner_MarkupCompile.lref
+G:\yourPlanner-app\yourPlanner\obj\Debug\App.baml
+G:\yourPlanner-app\yourPlanner\obj\Debug\Authorization.baml
+G:\yourPlanner-app\yourPlanner\obj\Debug\CreateNote.baml
+G:\yourPlanner-app\yourPlanner\obj\Debug\Day.baml
+G:\yourPlanner-app\yourPlanner\obj\Debug\EditProfile.baml
+G:\yourPlanner-app\yourPlanner\obj\Debug\home.baml
+G:\yourPlanner-app\yourPlanner\obj\Debug\mainPage.baml
+G:\yourPlanner-app\yourPlanner\obj\Debug\Money.baml
+G:\yourPlanner-app\yourPlanner\obj\Debug\Month.baml
+G:\yourPlanner-app\yourPlanner\obj\Debug\Passwords.baml
+G:\yourPlanner-app\yourPlanner\obj\Debug\Settings.baml
+G:\yourPlanner-app\yourPlanner\obj\Debug\Themes\Dark.baml
+G:\yourPlanner-app\yourPlanner\obj\Debug\Themes\Light.baml
+G:\yourPlanner-app\yourPlanner\obj\Debug\UserControl\ToggleSwitchMode.baml
+G:\yourPlanner-app\yourPlanner\obj\Debug\Week.baml
+G:\yourPlanner-app\yourPlanner\obj\Debug\Windows\notificationWindow.baml
+G:\yourPlanner-app\yourPlanner\obj\Debug\Year.baml
+G:\yourPlanner-app\yourPlanner\obj\Debug\yourPlanner.g.resources
+G:\yourPlanner-app\yourPlanner\obj\Debug\yourPlanner.Properties.Resources.resources
+G:\yourPlanner-app\yourPlanner\obj\Debug\yourPlanner.csproj.GenerateResource.cache
+G:\yourPlanner-app\yourPlanner\obj\Debug\yourPlanner.csproj.CoreCompileInputs.cache
+G:\yourPlanner-app\yourPlanner\obj\Debug\yourPlanner.csproj.CopyComplete
+G:\yourPlanner-app\yourPlanner\obj\Debug\yourPlanner.exe
+G:\yourPlanner-app\yourPlanner\obj\Debug\yourPlanner.pdb

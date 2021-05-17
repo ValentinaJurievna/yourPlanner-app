@@ -5,22 +5,32 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Data;
 
 namespace yourPlanner.AdditionalElements
 {
-        public class TextBoxWithPlaceholder : TextBox
+        public class TextBoxWithPlaceholder : IMultiValueConverter
+    {
+        public object Convert(object[] values, Type targetType, object parameter, System.Globalization.CultureInfo culture)
         {
-            public string Placeholder
+            // Always test MultiValueConverter inputs for non-null
+            // (to avoid crash bugs for views in the designer)
+            if (values[0] is bool && values[1] is bool)
             {
-                get { return (string)GetValue(PlaceholderProperty); }
-                set { SetValue(PlaceholderProperty, value); }
-            }
-            public static readonly DependencyProperty PlaceholderProperty = DependencyProperty.Register(
-                nameof(Placeholder), typeof(string), typeof(TextBoxWithPlaceholder), new PropertyMetadata(""));
+                bool hasText = !(bool)values[0];
+                bool hasFocus = (bool)values[1];
 
-            public TextBoxWithPlaceholder()
-            {
-                DefaultStyleKey = typeof(TextBoxWithPlaceholder);
+                if (hasFocus || hasText)
+                    return Visibility.Collapsed;
             }
+
+            return Visibility.Visible;
         }
+
+
+        public object[] ConvertBack(object value, Type[] targetTypes, object parameter, System.Globalization.CultureInfo culture)
+        {
+            throw new NotImplementedException();
+        }
+    }
 }

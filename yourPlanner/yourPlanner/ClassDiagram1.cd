@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="yourPlanner.Model.DailyPlans" Collapsed="true">
+    <Position X="5.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAQDACAAEAAAABAAAAAAAAAAAAAAABAAAAAQAAAEAAA=</HashCode>
+      <FileName>Model\DailyPlans.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="yourPlanner.Model.DayInfo" Collapsed="true">
+    <Position X="7.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIADgAgRAAAAFQMCAAACAiAAEQAAgBAACAAAASAAAYI=</HashCode>
+      <FileName>Model\DayInfo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="yourPlanner.Model.LoginPassword" Collapsed="true">
+    <Position X="9.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgDAAAAEAAAAAQAAAgAAAAAEAAAAAQAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\LoginPassword.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="yourPlanner.Model.User" Collapsed="true">
+    <Position X="11.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAgAAAAAAwQEAAEABACAAAQAgAAEAA=</HashCode>
+      <FileName>Model\User.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="yourPlanner.Model.WeekPriority" Collapsed="true">
+    <Position X="13.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAZoAICECACAAACIAAAAiIgIBCAoCAAgAAAACAAAoA=</HashCode>
+      <FileName>Model\WeekPriority.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="yourPlanner.Model.YearPlans" Collapsed="true">
+    <Position X="15.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAHAAAABAAAAAAAAAAAAAAAAAAAAAAAIAAAACAAAAA=</HashCode>
+      <FileName>Model\YearPlans.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="yourPlanner.ViewModel.BasicViewModel" Collapsed="true">
+    <Position X="10.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAIAAAAAAAgAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModel\BasicViewModel.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

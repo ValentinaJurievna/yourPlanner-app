@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:yourPlanner"
       mc:Ignorable="d" 
       d:DesignHeight="800" d:DesignWidth="1135"
-      Title="Money" Background="#34558B">
+      Title="Money" Style="{DynamicResource PageStyle}">
 
     <Grid>
         <TextBlock Text="Июнь" Margin="160,33,0,713" Style="{StaticResource font_style}" FontSize="48" Foreground="#F4DBB2" HorizontalAlignment="Left" FontWeight="Medium" FontFamily="Gotham Pro" Width="160"/>
